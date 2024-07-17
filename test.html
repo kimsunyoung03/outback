@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoom and Pan Example</title>
+<style>
+  body { display: flex; justify-content: center; align-items: center; scrollbar-width: none; }
+  .wrap { width: 320px; height: 800px; margin: 0 auto; position: relative; }
+  .frame { z-index: 999; pointer-events: none; position: fixed; width: 320px; }
+  .img_wrap { width: 320px; height: 600px; display: flex; justify-content: center; align-items: center; overflow: hidden; object-fit: cover; overflow: auto; touch-action: manipulation; position: absolute; top: 0; left: 0; }
+  img.back { position: absolute; top: 0; left: 0; zoom: 0.3; }
+  map { position: absolute; top: 0; left: 0; z-index: 999; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="frame" src="./frame.png">
+  <div class="img_wrap" id="zoomable">
+    <img class="back" src="Background.png" usemap="#imgmap202471714495">
+    <map id="imgmap202471714495" name="imgmap202471714495">
+      <area id="area1" shape="rect" alt="Area 1" title="Area 1" coords="2222,523,2433,744" href="#" target="_self" />
+      <area id="area2" shape="rect" alt="Area 2" title="Area 2" coords="432,1329,681,1603" href="#" target="_self" />
+      <area id="area3" shape="rect" alt="Area 3" title="Area 3" coords="178,135,535,395" href="#" target="" />
+    </map>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+  $(document).ready(function(){
+      $("#area1").click(function() {
+          alert("첫 번째 영역을 클릭했습니다!");
+      });
+      $("#area2").click(function() {
+          alert("두 번째 영역을 클릭했습니다!");
+      });
+      $("#area3").click(function() {
+          alert("세 번째 영역을 클릭했습니다!");
+      });
+
+      // Panzoom 초기화
+      const element = document.getElementById('zoomable');
+      panzoom(element, {
+          maxZoom: 3,
+          minZoom: 1,
+          zoomDoubleClickSpeed: 1,
+          bounds: true,
+          boundsPadding: 0.1
+      });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+  <title>아웃백 줌인 테스트화면</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <!-- JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body>
+<style>
+  body{}
+  .frame{width:100%;height: 100vh;display:flex;justify-content:center;align-items:center;background:url(./frame.png)no-repeat center rgb(88, 71, 71); background-size:300px;}
+  .img_wrap{position:relative;width:280px;height:500px;display:flex;justify-content:center;align-items:center;overflow: hidden;object-fit: cover;overflow:auto;top:-40px;touch-action:auto }
+  img{position:absolute;top:0;left:0;zoom:0.3;}
+  map{position:absolute;top:0;left:0;z-index:999;}
+</style>
+<div class="frame">
+  <div class="img_wrap">
+    <img src="Background.png" usemap="#imgmap202471714495">
+    <map id="imgmap202471714495" name="imgmap202471714495">
+      <area id="area1" shape="rect" alt="Area 1" title="Area 1" coords="2222,523,2433,744" href="#" target="_self" />
+      <area id="area2" shape="rect" alt="Area 2" title="Area 2" coords="432,1329,681,1603" href="#" target="_self" />
+      <area id="area3" shape="rect" alt="Area 3" title="Area 3" coords="178,135,535,395" href="#" target="" />
+    </map>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+      $("#area1").click(function() {
+          alert("첫 번째 영역을 클릭했습니다!");
+      });
+      $("#area2").click(function() {
+          alert("두 번째 영역을 클릭했습니다!");
+      });
+      $("#area3").click(function() {
+          alert("세 번째 영역을 클릭했습니다!");
+      });
+  });
+</script>
+
+</body>
+</html>
