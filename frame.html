@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <title>아웃백 줌인 테스트화면</title>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -20,10 +19,10 @@
 <body>
 <style>
   body{display:flex;justify-content:center;align-items: center; scrollbar-width: none}
-  .wrap{width:320px;height:800px;margin:0 auto;position:relative}
-  .frame{z-index: 999;pointer-events: none;position:fixed;width:320px}
-  .img_wrap{width:320px;height:600px;display:flex;justify-content:center;align-items:center;overflow: hidden;object-fit: cover;overflow:auto;top:-40px;touch-action: manipulation;position:absolute;top:0;left:0;}
-    iframe{width:100%;height: 100%;}
+  .wrap{width:100%;height:100vh;margin:0 auto;position:relative;overflow: hidden;}
+  .frame{z-index: 999;pointer-events: none;position:fixed;width:100%;height:100%;}
+  .img_wrap{width:100%;height:100%;}
+   iframe{width:100%;height: 100%;}
 </style>
 
 <div class="wrap">
