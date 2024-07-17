@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<title>TEST</title>
+<style>
+*{margin:0;padding:0}
+.wrap{position:relative;width: 100%;height:100vh;overflow:none;}
+.frame{position:absolute;top:0;left:0;pointer-events: none;width:100%;height:100%;z-index: 999;}
+.img_wrap{position:relative;width:100%;height:100%;overflow:auto;}
+.img_wrap img, .img_wrap map{position:absolute;top:0;left:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="frame" src="./frame.png">
+  <div class="img_wrap">
+    <img class="back" src="Background.png" usemap="#imgmap202471714495">
+    <map id="imgmap202471714495" name="imgmap202471714495">
+      <area id="area1" shape="rect" alt="Area 1" title="Area 1" coords="2222,523,2433,744" href="#" target="_self" />
+      <area id="area2" shape="rect" alt="Area 2" title="Area 2" coords="432,1329,681,1603" href="#" target="_self" />
+      <area id="area3" shape="rect" alt="Area 3" title="Area 3" coords="178,135,535,395" href="#" target="" />
+    </map>
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+      $("#area1").click(function() {
+          alert("첫 번째 영역을 클릭했습니다!");
+      });
+      $("#area2").click(function() {
+          alert("두 번째 영역을 클릭했습니다!");
+      });
+      $("#area3").click(function() {
+          alert("세 번째 영역을 클릭했습니다!");
+      });
+  })
+</script>
+</body>
+</html>
