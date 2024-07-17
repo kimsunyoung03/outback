@@ -98,7 +98,7 @@
         var distance = Math.sqrt(distX * distX + distY * distY);
         var initialDistance = Math.sqrt(startX * startX + startY * startY);
         
-        scale = Math.max(0.5, Math.min(3, scale * (distance / initialDistance)));
+        scale = Math.max(0.5, Math.min(2, scale * (distance / initialDistance)));
         
         iframeDocument.body.style.transform = 'scale(' + scale + ')';
       }
