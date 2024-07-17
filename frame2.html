@@ -49,7 +49,6 @@
     height: 100%;
     touch-action: none; /* 터치 동작 방지 */
     pointer-events: auto; /* iframe 내부에서 이벤트 허용 */
-    transform-origin: 0 0; /* 확대/축소 중심점 설정 */
   }
 </style>
 
@@ -62,7 +61,6 @@
 
 <script>
   $(document).ready(function(){
-      
       $("#area1").click(function() {
           alert("첫 번째 영역을 클릭했습니다!");
       });
@@ -74,20 +72,44 @@
       });
   });
 
-  document.addEventListener('gesturestart', function (e) {
-    e.preventDefault();
-  });
+  var scale = 1;
+  var iframe = document.getElementById('zoomable-iframe');
 
-  document.addEventListener('gesturechange', function (e) {
-    var iframe = document.getElementById('zoomable-iframe');
-    var scale = Math.max(0.5, Math.min(2, e.scale)); // 줌 범위 제한 (0.5배 ~ 2배)
-    iframe.style.transform = 'scale(' + scale + ')';
-  });
+  iframe.addEventListener('load', function () {
+    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDocument.body.style.transformOrigin = '0 0';
+    iframeDocument.body.style.transition = 'transform 0.3s';
+    
+    var startX = 0, startY = 0, distX = 0, distY = 0;
 
-  document.addEventListener('gestureend', function (e) {
-    var iframe = document.getElementById('zoomable-iframe');
-    var scale = Math.max(0.5, Math.min(2, e.scale)); // 줌 범위 제한 (0.5배 ~ 2배)
-    iframe.style.transform = 'scale(' + scale + ')';
+    iframe.contentWindow.addEventListener('touchstart', function (e) {
+      if (e.touches.length === 2) {
+        startX = e.touches[0].clientX - e.touches[1].clientX;
+        startY = e.touches[0].clientY - e.touches[1].clientY;
+      }
+    });
+
+    iframe.contentWindow.addEventListener('touchmove', function (e) {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        distX = e.touches[0].clientX - e.touches[1].clientX;
+        distY = e.touches[0].clientY - e.touches[1].clientY;
+
+        var distance = Math.sqrt(distX * distX + distY * distY);
+        var initialDistance = Math.sqrt(startX * startX + startY * startY);
+        
+        scale = Math.max(0.5, Math.min(3, scale * (distance / initialDistance)));
+        
+        iframeDocument.body.style.transform = 'scale(' + scale + ')';
+      }
+    });
+
+    iframe.contentWindow.addEventListener('touchend', function (e) {
+      if (e.touches.length < 2) {
+        startX = 0;
+        startY = 0;
+      }
+    });
   });
 </script>
 

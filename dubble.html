@@ -44,6 +44,12 @@ map{position:absolute;top:0;left:0;z-index:999;}
       $("#area3").click(function() {
           alert("세 번째 영역을 클릭했습니다!");
       });
+
+      let zoomLevel = 1.2;
+      $(".img_wrap").dblclick(function() {
+          zoomLevel = (zoomLevel === 1.2) ? 2 : 1.2;
+          $(this).css("zoom", zoomLevel);
+      });
   });
 </script>
 
