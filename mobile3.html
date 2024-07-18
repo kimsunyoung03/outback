@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src='https://unpkg.com/panzoom@9.2.3/dist/panzoom.js'></script>
+<title>TEST</title>
+<style>
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+* { margin: 0; padding: 0;font-family:"Pretendard Variable", sans-serif;}
+#outback_game_mobile{width:100%;height: 100vh;display:flex;justify-content:center;align-items: center;position:relative;background:url('./img/wrap_background.jpg')}
+.frame_wrap{margin:0 auto;max-width:480px;height:100%;overflow:hidden;position:absolute;width:100%;}
+.frame_wrap > img{z-index:999;pointer-events: none;position:absolute}
+.frame_wrap .frame{ top: 0; left: 0; width: 100%;height: 100%; z-index: 999;}
+.frame_wrap .logo{top:0;left:10px;width:50%;}
+.frame_wrap .count_area{z-index: 999;position: absolute;bottom:13%;right: 0px;background: url(./img/count_bg.png) no-repeat right;width: 100px;height: 50px;border-radius: 30px 0 0 0;display: flex;justify-content: center;align-items: center;}
+.frame_wrap .count_area p{font-size:18px;font-weight:400;color:#fff;}
+.frame_wrap .count_area p span{color:#fdfa00;font-weight:800;}
+.frame_wrap .bottom_item{pointer-events:none;position:absolute;width:100%;bottom:16px;left:10px;display:flex;gap:8px;align-items: center;z-index:999;}
+.frame_wrap .bottom_item img{max-width:20%;max-height:60px;}
+.frame_wrap .bottom_item img.off{filter: grayscale(1);}
+
+.game_wrap { position: relative; width: 100%; max-width:480px;height: 100vh; overflow: hidden;margin:0 auto;background:url('./img/wrap_background.jpg');}
+
+.v-img-zoom--item{transform:matrix(0.155571, 0, 0, 0.155571, -38.8145, -9.71551)}
+
+.item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block}
+.item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;}
+.item_modal img.on{animation: item_modal 4s;}
+.item_modal.on{background:rgb(0 0 0 / 43%)}
+.zoom_pin{z-index: 999;}
+#start_modal{position:absolute;width:100%;max-width:480px;height:100vh;z-index:99999;transition:1.2s;background:#00000000;pointer-events:none;}
+#start_modal.on{bottom:0;background:#000000b6;pointer-events:all;}
+#start_modal.on .modal_wrap{bottom:0}
+#start_modal .modal_wrap{display:flex;flex-direction: column;justify-content: flex-end;position:absolute;bottom:-100%;transition:1.2s;}
+#start_modal img{width:100%;max-width:100%;}
+#start_modal button{width:100%;border:none;text-align:center;font-weight:500;color:#fff;background:url(./img/btn_bg.jpg);font-size:1.2rem;padding:24px 0;cursor: pointer;}
+.f-panzoom__content{position: relative;transform: matrix(1, 0, 0, 1, 0, 0);width: fit-content;}
+.v-img-zoom {overflow: hidden;}
+.pin_s{display:none;width: 100%;height: 100%;position: absolute;z-index: 999;top: 0;left: 0;background-size: contain;pointer-events: none;}
+.pin_s.on{display:block;}
+
+@keyframes item_modal{
+    0% {
+        opacity:0;
+        transform:translate(-50%)  rotateY(0deg) ;
+        top:-100%;
+    }
+    30% {
+        opacity:1;
+        transform: translate(-50%) rotateY(360deg) ;
+        top:20%;
+    }
+    45% {
+        transform:translate(-50%)  rotateY(360deg) ;
+        top:20%;
+    }
+    60% {
+        opacity:1;
+        transform:translate(-50%)  rotateY(360deg) ;
+        top:20%;
+    }
+    100% {
+        opacity:0;
+        transform:translate(-50%)  rotateY(180deg) ;
+        top:-100%;
+    }
+}
+
+</style>
+</head>
+<body>
+<article id="outback_game_mobile">
+    <div class="frame_wrap">
+        <img class="logo" src="./img/logo.png">
+        <img class="frame" src="./img/frame.png">
+        <div class="count_area">
+            <p><span class="count">0</span>&nbsp;/&nbsp;5</p>
+        </div>
+        <div class="bottom_item">
+            <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프">
+            <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">    
+            <img id="item4" src="./img/item4.png" alt="패션후르츠 슈림프 샐러드">
+            <img id="item1" src="./img/item1.png" alt="수박 그라나따">
+            <img id="item3" src="./img/item3.png" alt="망고 그라나따">
+        </div>
+        <article id="start_modal" class="on">
+            <div class="modal_wrap">
+                <img src="./img/start.png" alt="숨은맵시를 찾아서">
+                <button type="button" class="start_button">START</button>
+            </div>
+        </article>
+    </div>
+
+    <div class="game_wrap v-img-zoom" id="myPanzoom"> 
+        <div class="v-img-zoom--wrapper"  >
+            <div class="v-img-zoom--item">
+                <div  class="f-panzoom__content">
+                    <img src="./img/Background.png"  usemap="#imgmap202471885638">
+                    <img src="./img/item1_check.png" class="pin_s" id="item1_check">
+                    <img src="./img/item2_check.png" class="pin_s" id="item2_check">
+                    <img src="./img/item3_check.png" class="pin_s" id="item3_check">
+                    <img src="./img/item4_check.png" class="pin_s" id="item4_check">
+                    <img src="./img/item5_check.png" class="pin_s" id="item5_check">
+                </div>
+                <map id="imgmap202471885638" name="imgmap202471885638">
+                    <area id="area1" shape="rect" alt="수박 그라나따" title="" coords="448,1364,660,1576" />
+                    <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프" title="" coords="2220,516,2460,756" />
+                    <area id="area3" shape="rect" alt="망고 그라나따" title="" coords="3568,2416,3856,2704" />
+                    <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드" title="" coords="628,2732,860,2964"  />
+                    <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" title="" coords="300,5044,596,5340"/>
+                </map>
+            </div>
+        </div>
+        <div class="item_modal">
+            <img id="item1_poup" src="./img/item1_popup.png" alt="수박 그라나따(팝업)">
+            <img id="item2_poup" src="./img/item2_popup.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프(팝업)">
+            <img id="item3_poup" src="./img/item3_popup.png" alt="망고 그라나따(팝업)">
+            <img id="item4_poup" src="./img/item4_popup.png" alt="패션후르츠 슈림프 샐러드(팝업)">
+            <img id="item5_poup" src="./img/item5_popup.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce(팝업)">
+        </div>
+    </div>
+</article>
+
+
+<script>
+var element = document.querySelector('.v-img-zoom--item')
+var pins = Array.from(document.querySelectorAll('.pin'));
+
+panzoom(element).on('transform', function(pz) {
+  var transform = pz.getTransform();
+  pins.forEach(pin => {
+    var pinStyle = pin.style;
+    pinStyle.transformOrigin = '0 0 0';
+    pinStyle.transform = 'matrix(' +
+      1/transform.scale + ', 0, 0, ' +
+      1/transform.scale + ', ' +
+      0 + ', ' + 0 + ')';
+  });
+})
+
+
+</script>
+<script>
+
+$(document).ready(function(){
+
+    
+    $('.start_button').click(function(){
+        $('#start_modal').removeClass('on')
+    })
+
+    $('.item_modal img').click(function(){
+        $(this).removeClass('on');
+        updateCount();
+    });
+
+    $("#area1").click(function() {
+        $('#item1_poup').addClass('on');
+        $('#item1_check').addClass('on');
+        $('#item1').addClass('off');
+        updateCount();
+    });
+    $("#area2").click(function() {
+        $('#item2_poup').addClass('on');
+        $('#item2_check').addClass('on');
+        $('#item2').addClass('off');
+        updateCount();
+    });
+    $("#area3").click(function() {
+        $('#item3_poup').addClass('on');
+        $('#item3_check').addClass('on');
+        $('#item3').addClass('off');
+        updateCount();
+    });
+    $("#area4").click(function() {
+        $('#item4_poup').addClass('on');
+        $('#item4_check').addClass('on');
+        $('#item4').addClass('off');
+        updateCount();
+    });
+    $("#area5").click(function() {
+        $('#item5_poup').addClass('on');
+        $('#item5_check').addClass('on');
+        $('#item5').addClass('off');
+        updateCount();
+    });
+
+    function updateCount() {
+        var onCount = $('.item_modal img.on').length;
+        $('.count').text(onCount);
+    }
+});
+</script>
+</body>
+</html>
