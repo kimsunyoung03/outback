@@ -25,8 +25,6 @@
 
 .game_wrap { position: relative; width: 100%; max-width:480px;height: 100vh; overflow: hidden;margin:0 auto;background:url('./img/wrap_background.jpg');}
 
-.v-img-zoom--item{transform:matrix(0.155571, 0, 0, 0.155571, -38.8145, -9.71551)}
-
 .item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block}
 .item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;}
 .item_modal img.on{animation: item_modal 4s;}
@@ -127,25 +125,23 @@
 
 
 <script>
-    
+
 var element = document.querySelector('.v-img-zoom--item');
-var pins = Array.from(document.querySelectorAll('.pin'));
+panzoom(element, {
+    onTouch: function(e) {
+    return false;
+    },
+    onDoubleClick: function(e) {
+    return false;
+    },
+  maxZoom: 5,
+  minZoom: .165,
+  initialX: 1500,
+  initialY: 1500,
+  initialZoom:0.165,
+  bounds: true,
+});
 
-panzoom(element).on('transform', function(pz) {
-  var transform = pz.getTransform();
-  pins.forEach(pin => {
-    var pinStyle = pin.style;
-    pinStyle.transformOrigin = '0 0 0';
-    pinStyle.transform = 'matrix(' +
-      1/transform.scale + ', 0, 0, ' +
-      1/transform.scale + ', ' +
-      0 + ', ' + 0 + ')';
-  });
-})
-
-
-</script>
-<script>
 
 $(document).ready(function(){
 
