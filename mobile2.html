@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/panzoom/panzoom.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/panzoom/panzoom.css"/>
+<title>TEST</title>
+<style>
+* { margin: 0; padding: 0; }
+.wrap { position: relative; width: 100%; height: 100vh; overflow: hidden;}
+.frame { position: absolute; top: 0; left: 0; pointer-events: none; width: 100%; height: 100%; z-index: 999; }
+.img_wrap { position: relative; width: 100%; height: 100%; overflow: hidden;transition:1.5s;}
+.img_wrap img, .img_wrap map { position: absolute; top: 0; left: 0;}
+.img_wrap map{z-index:999;}
+#myPanzoom{width: 100%;height: 100%;}
+.f-panzoom__content{max-width: inherit !important;max-height:inherit !important;width:100%;transform-origin:center }
+.event_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:none}
+.event_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:.3s;width:50%;height:auto}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <img class="frame" src="./img/frame.png">
+  <div class="f-panzoom" id="myPanzoom" >
+    <div class="img_wrap">
+        <img src="./img/Background.png" usemap="#imgmap202471885638"  class="f-panzoom__content">
+        <map id="imgmap202471885638" name="imgmap202471885638" class="f-panzoom__content">
+            <area id="area1" shape="rect" alt="수박 그라나따" title="" coords="448,1364,660,1576" />
+            <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프" title="" coords="2220,516,2460,756" />
+            <area id="area3" shape="rect" alt="망고 그라나따" title="" coords="3568,2416,3856,2704" />
+            <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드" title="" coords="628,2732,860,2964"  />
+            <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" title="" coords="300,5044,596,5340"/>
+        </map>
+  </div>
+</div>
+</div>
+<div class="event_modal">
+    <img id="item1" src="./img/item1.png" alt="수박 그라나따(팝업)">
+    <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프(팝업)">
+    <img id="item3" src="./img/item3.png" alt="망고 그라나따(팝업)">
+    <img id="item3" src="./img/item4.png" alt="패션후르츠 슈림프 샐러드(팝업)">
+    <img id="item4" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce(팝업)">
+</div>
+<script>
+$(document).ready(function(){
+    const container = document.getElementById("myPanzoom");
+    const options = { 
+        click:false,
+        minScale:1,
+        maxScale:4,
+        maxVelocity:5000,
+        bounce:true
+    };
+
+    new Panzoom(container, options);
+
+  // Handling clicks on areas
+  $("#area1").click(function() {
+      alert("수박 그라나따");
+      $('#item1').css('top','-20%');
+  });
+  $("#area2").click(function() {
+      alert("퀸즈랜드 립아이 & 스콜피온 슈림프");
+  });
+  $("#area3").click(function() {
+      alert("망고 그라나따");
+  });
+  $("#area4").click(function() {
+      alert("패션후르츠 슈림프 샐러드");
+  });
+  $("#area5").click(function() {
+      alert("스콜피온 베이비 백 립 with TABASCO Scorpion Sauce");
+  });
+});
+</script>
+</body>
+</html>
