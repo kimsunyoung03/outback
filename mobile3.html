@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src='https://unpkg.com/panzoom@9.2.3/dist/panzoom.js'></script>
+
 <title>TEST</title>
 <style>
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
@@ -126,7 +127,8 @@
 
 
 <script>
-var element = document.querySelector('.v-img-zoom--item')
+    
+var element = document.querySelector('.v-img-zoom--item');
 var pins = Array.from(document.querySelectorAll('.pin'));
 
 panzoom(element).on('transform', function(pz) {
@@ -147,7 +149,6 @@ panzoom(element).on('transform', function(pz) {
 
 $(document).ready(function(){
 
-    
     $('.start_button').click(function(){
         $('#start_modal').removeClass('on')
     })
@@ -156,37 +157,36 @@ $(document).ready(function(){
         $(this).removeClass('on');
         updateCount();
     });
-
-    $("#area1").click(function() {
+    $("#area1").on("click, touchstart", function (e) {
         $('#item1_poup').addClass('on');
         $('#item1_check').addClass('on');
         $('#item1').addClass('off');
         updateCount();
-    });
-    $("#area2").click(function() {
+    })
+    $("#area2").on("click, touchstart", function (e) {
         $('#item2_poup').addClass('on');
         $('#item2_check').addClass('on');
         $('#item2').addClass('off');
         updateCount();
-    });
-    $("#area3").click(function() {
+    })
+    $("#area3").on("click, touchstart", function (e) {
         $('#item3_poup').addClass('on');
         $('#item3_check').addClass('on');
         $('#item3').addClass('off');
         updateCount();
-    });
-    $("#area4").click(function() {
+    })
+    $("#area4").on("click, touchstart", function (e) {
         $('#item4_poup').addClass('on');
         $('#item4_check').addClass('on');
         $('#item4').addClass('off');
         updateCount();
-    });
-    $("#area5").click(function() {
+    })
+    $("#area5").on("click, touchstart", function (e) {
         $('#item5_poup').addClass('on');
         $('#item5_check').addClass('on');
         $('#item5').addClass('off');
         updateCount();
-    });
+    })
 
     function updateCount() {
         var onCount = $('.item_modal img.on').length;
