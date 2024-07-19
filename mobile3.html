@@ -129,18 +129,17 @@ var element = document.querySelector('.v-img-zoom--item');
 panzoom(element, {
   zoomSpeed: 0.080, // 6.5% per mouse wheel event
   pinchSpeed: 2,
-  maxZoom: 1,
-  minZoom: 0.1,
+  maxZoom: 5,
+  minZoom: 0.15,
   initialZoom: 0.5,
-});
-panzoom(element, {
-    onTouch: function(e) {
+  onTouch: function(e) {
     return false; 
   },
   onDoubleClick: function(e) {
     return false;
   }
 });
+
 
 $(document).ready(function(){
 
