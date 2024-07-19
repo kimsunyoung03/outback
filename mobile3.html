@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src='https://unpkg.com/panzoom@9.2.3/dist/panzoom.js'></script>
-
+<script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 <title>TEST</title>
 <style>
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
@@ -19,7 +19,7 @@
 .frame_wrap .count_area{z-index: 999;position: absolute;bottom:13%;right: 0px;background: url(./img/count_bg.png) no-repeat right;width: 100px;height: 50px;border-radius: 30px 0 0 0;display: flex;justify-content: center;align-items: center;}
 .frame_wrap .count_area p{font-size:18px;font-weight:400;color:#fff;}
 .frame_wrap .count_area p span{color:#fdfa00;font-weight:800;}
-.frame_wrap .bottom_item{pointer-events:none;position:absolute;width:100%;bottom:16px;left:10px;display:flex;gap:8px;align-items: center;z-index:999;}
+.frame_wrap .bottom_item{pointer-events:none;position:absolute;width:100%;bottom:32px;left:10px;display:flex;gap:8px;align-items: center;z-index:999;}
 .frame_wrap .bottom_item img{max-width:20%;max-height:60px;}
 .frame_wrap .bottom_item img.off{filter: grayscale(1);}
 
@@ -125,23 +125,22 @@
 
 
 <script>
-
 var element = document.querySelector('.v-img-zoom--item');
 panzoom(element, {
-    onTouch: function(e) {
-    return false;
-    },
-    onDoubleClick: function(e) {
-    return false;
-    },
-  maxZoom: 5,
-  minZoom: .165,
-  initialX: 1500,
-  initialY: 1500,
-  initialZoom:0.165,
-  bounds: true,
+  zoomSpeed: 0.080, // 6.5% per mouse wheel event
+  pinchSpeed: 2,
+  maxZoom: 1,
+  minZoom: 0.1,
+  initialZoom: 0.5,
 });
-
+panzoom(element, {
+    onTouch: function(e) {
+    return false; 
+  },
+  onDoubleClick: function(e) {
+    return false;
+  }
+});
 
 $(document).ready(function(){
 
@@ -153,31 +152,31 @@ $(document).ready(function(){
         $(this).removeClass('on');
         updateCount();
     });
-    $("#area1").on("click, touchstart", function (e) {
+    $("#area1").on("click touchstart", function (e) {
         $('#item1_poup').addClass('on');
         $('#item1_check').addClass('on');
         $('#item1').addClass('off');
         updateCount();
     })
-    $("#area2").on("click, touchstart", function (e) {
+    $("#area2").on("click touchstart", function (e) {
         $('#item2_poup').addClass('on');
         $('#item2_check').addClass('on');
         $('#item2').addClass('off');
         updateCount();
     })
-    $("#area3").on("click, touchstart", function (e) {
+    $("#area3").on("click touchstart", function (e) {
         $('#item3_poup').addClass('on');
         $('#item3_check').addClass('on');
         $('#item3').addClass('off');
         updateCount();
     })
-    $("#area4").on("click, touchstart", function (e) {
+    $("#area4").on("click touchstart", function (e) {
         $('#item4_poup').addClass('on');
         $('#item4_check').addClass('on');
         $('#item4').addClass('off');
         updateCount();
     })
-    $("#area5").on("click, touchstart", function (e) {
+    $("#area5").on("click touchstart", function (e) {
         $('#item5_poup').addClass('on');
         $('#item5_check').addClass('on');
         $('#item5').addClass('off');
