@@ -1,4 +1,5 @@
 ./img : 이미지
+
 [현재작업중]
 ./mobile3.html : 현재작업중인 파일 - https://github.com/anvaka/panzoom 라이브러리사용
 
