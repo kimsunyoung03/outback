@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+<link rel="stylesheet" href="./style.css" />
+<title>TEST</title>
+</head>
+<body>
+<article id="outback_game_mobile">
+
+    <div class="frame_wrap">
+        <img class="logo" src="./img/logo.png">
+        <img class="frame" src="./img/frame.png">
+        <div class="count_area">
+            <p><span class="count">0</span>&nbsp;/&nbsp;5</p>
+        </div>
+        <div class="bottom_item">
+            <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프">
+            <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">    
+            <img id="item4" src="./img/item4.png" alt="패션후르츠 슈림프 샐러드">
+            <img id="item1" src="./img/item1.png" alt="수박 그라나따">
+            <img id="item3" src="./img/item3.png" alt="망고 그라나따">
+        </div>
+        <article id="start_modal" class="on">
+            <div class="modal_wrap">
+                <img src="./img/start.png" alt="숨은맵시를 찾아서">
+                <button type="button" class="start_button">START</button>
+            </div>
+        </article>
+        <article id="cotrol" class="on">
+            <img src="./img/cotrol.png">
+        </article> 
+
+        <article id="reward">
+            <div class="reward01">
+                <img class="coupon" src="./img/reward01_coupon.png">
+                <div class="txt_area">
+                    <p class="tit">2만원 할인</p>
+                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
+                    <p class="comment">7만원 이상 주문 시 사용 가능</p>
+                </div>
+                <a class="btn download" href="./reward01.html"><img src="./img/btn_download.png"></a>
+                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
+            </div>
+            <div class="reward02">
+                <img class="coupon" src="./img/reward02_coupon.png">
+                <div class="txt_area">
+                    <p class="tit">1만원 할인</p>
+                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
+                    <p class="comment">7만원 이상 주문 시 사용 가능</p>
+                </div>
+                <a class="btn download" href="./reward02.html"><img src="./img/btn_download.png"></a>
+                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
+            </div>
+            <div class="reward03">
+                <img class="coupon" src="./img/reward03_coupon.png">
+                <div class="txt_area">
+                    <p class="tit">5천원 할인</p>
+                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
+                    <p class="comment">7만원 이상 주문 시 사용 가능</p>
+                </div>
+                <a class="btn download" href="./reward03.html"><img src="./img/btn_download.png"></a>
+                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
+            </div>
+            <div class="reward04">
+                <img class="coupon" src="./img/reward04_coupon.png">
+                <div class="txt_area">
+                    <p class="tit">타바스코 미니어처</p>
+                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
+                    <p class="comment">＊소진 시,치즈케이크 제공</p>
+                </div>
+                <a class="btn download" href="./reward04.html"><img src="./img/btn_download.png"></a>
+                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
+            </div>
+        </article>
+    </div>
+
+    <div class="game_wrap v-img-zoom" id="myPanzoom"> 
+        <div class="v-img-zoom--wrapper"  >
+            <div class="v-img-zoom--item">
+                <div  class="f-panzoom__content">
+                    <img src="./img/Background.png"  usemap="#imgmap202471885638">
+                    <img src="./img/item1_check.png" class="pin_s" id="item1_check">
+                    <img src="./img/item2_check.png" class="pin_s" id="item2_check">
+                    <img src="./img/item3_check.png" class="pin_s" id="item3_check">
+                    <img src="./img/item4_check.png" class="pin_s" id="item4_check">
+                    <img src="./img/item5_check.png" class="pin_s" id="item5_check">
+                </div>
+                <map id="imgmap202471885638" name="imgmap202471885638">
+                    <area id="area1" shape="rect" alt="수박 그라나따" title="" coords="448,1364,660,1576" />
+                    <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프" title="" coords="2220,516,2460,756" />
+                    <area id="area3" shape="rect" alt="망고 그라나따" title="" coords="3568,2416,3856,2704" />
+                    <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드" title="" coords="628,2732,860,2964"  />
+                    <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" title="" coords="300,5044,596,5340"/>
+                </map>
+            </div>
+        </div>
+        <div class="item_modal">
+            <img id="item1_poup" src="./img/item1_popup.png" alt="수박 그라나따(팝업)">
+            <img id="item2_poup" src="./img/item2_popup.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프(팝업)">
+            <img id="item3_poup" src="./img/item3_popup.png" alt="망고 그라나따(팝업)">
+            <img id="item4_poup" src="./img/item4_popup.png" alt="패션후르츠 슈림프 샐러드(팝업)">
+            <img id="item5_poup" src="./img/item5_popup.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce(팝업)">
+        </div>
+    </div>
+</article>
+
+
+<script>
+var element = document.querySelector('.v-img-zoom--item');
+panzoom(element, {
+  zoomSpeed: 0.200,
+  pinchSpeed: 2,
+  maxZoom: 5,
+  minZoom: 0.1,
+  zoomDoubleClickSpeed: 0,
+  initialX: -54.2044,
+  initialY: 76.2663,
+  initialZoom: 0.15,
+});
+
+
+$(document).ready(function(){
+
+
+    $('#cotrol').on("click touchstart", function (e) {
+        $(this).removeClass('on');
+    })
+
+    $('.start_button').click(function(){
+        $('#start_modal').removeClass('on')
+        // panzoom(element,{
+        //     initialX:-193.237,
+        //     initialY:-504.765,
+        //     initialZoom:0.257492,
+        // })
+    })
+    
+    $('.item_modal img').click(function(){
+        $(this).removeClass('on');
+        updateCount();
+    });
+    $("#area1").on("click touchstart", function (e) {
+        $('#item1_poup').addClass('on');
+        $('#item1_check').addClass('on');
+        $('#item1').addClass('off');
+        updateCount();
+    })
+    $("#area2").on("click touchstart", function (e) {
+        $('#item2_poup').addClass('on');
+        $('#item2_check').addClass('on');
+        $('#item2').addClass('off');
+        updateCount();
+    })
+    $("#area3").on("click touchstart", function (e) {
+        $('#item3_poup').addClass('on');
+        $('#item3_check').addClass('on');
+        $('#item3').addClass('off');
+        updateCount();
+    })
+    $("#area4").on("click touchstart", function (e) {
+        $('#item4_poup').addClass('on');
+        $('#item4_check').addClass('on');
+        $('#item4').addClass('off');
+        updateCount();
+    })
+    $("#area5").on("click touchstart", function (e) {
+        $('#item5_poup').addClass('on');
+        $('#item5_check').addClass('on');
+        $('#item5').addClass('off');
+        updateCount();
+    })
+
+    function updateCount() {
+        var onCount = $('.item_modal img.on').length;
+        $('.count').text(onCount);
+        
+        if (onCount === 5) {
+            setTimeout(function() {
+                $('#reward').addClass('on');
+                var rewardImages = $('#reward > div');
+                var randomIndex = Math.floor(Math.random() * rewardImages.length);
+                rewardImages.removeClass('on');
+                rewardImages.eq(randomIndex).addClass('on');
+            }, 2500); 
+        }
+    }
+
+});
+</script>
+</body>
+</html>
