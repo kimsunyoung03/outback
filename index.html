@@ -97,7 +97,11 @@ panzoom(element, {
 
 $(document).ready(function(){
 
-
+// 이미지 드래그 이벤트
+$('.v-img-zoom--item').on("click", function (e) {
+    console.log(element);
+});
+    
 $('#cotrol').on("click touchstart", function (e) {
     $(this).removeClass('on');
 })
