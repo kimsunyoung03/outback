@@ -95,9 +95,10 @@ panzoom(element, {
 });
 
 
-$(document).onload(function(){
-    // $('.v-img-zoom--item').on("ready", function (e) {
-    //$(document).onload(function(){
+$(document).ready(function(){
+     window.onload = function() { // window.addEventListener('load', (event) => {와 동일합니다.
+
+
         // 이미지가 그려지고 나서 처음의 x, y의 값을 구해야만 아래의 드래그 이벤트에서 if 를 사용 할 수 있다.
         var getFirstStyle = element.style;
         //console.log(getFirstStyle);
@@ -110,7 +111,7 @@ $(document).onload(function(){
     
         console.log(trf_f_x);
         console.log(trf_f_y);
-    // });
+    };
     
 // 이미지 드래그 이벤트
 $('.v-img-zoom--item').on("click", function (e) {
