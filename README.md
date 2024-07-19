@@ -8,8 +8,8 @@
     ※ (이슈):: 축소시 여백이동 -> 해결못함
 
     
-2. https://kimsunyoung03.github.io/test/mobile.html (모바일버전) 
-    - https://github.com/anvaka/panzoom 라이브러리사용
+2. https://kimsunyoung03.github.io/test/mobile.html (모바일버전)
+   - https://github.com/anvaka/panzoom 라이브러리사용
     ※ (이슈) :: 축소시 여백이동 -> 해결못함
 
     
