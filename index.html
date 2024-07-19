@@ -133,7 +133,7 @@ $('.v-img-zoom--item').on("click", function (e) {
     var trf_y = trfSplit[5];
 
     // 최종적으로 x, y 의 범위 안에 있지 않으면 다시 초기화 되도록 해야한다.
-    if(trf_x < trf_f_x-1000) {
+    if(trf_x-1000 > trf_f_x) {
         alert("x값이 선을 넘었습니다.");
     } 
     // esleif(trf_y < trf_f_y-1000) {
