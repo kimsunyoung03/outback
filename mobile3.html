@@ -35,7 +35,7 @@
 
 #start_modal{position:absolute;width:100%;max-width:480px;height:100vh;z-index:99999;transition:1.2s;background:#00000000;pointer-events:none;}
 #start_modal.on{bottom:0;pointer-events:all;}
-#start_modal.on .modal_wrap{bottom:0}
+#start_modal.on .modal_wrap{bottom:50px}
 #start_modal .modal_wrap{display:flex;flex-direction: column;justify-content: flex-end;position:absolute;bottom:-1500px;transition:1.2s;}
 #start_modal img{width:100%;max-width:100%;}
 #start_modal button{width:100%;border:none;text-align:center;font-weight:500;color:#fff;background:url(./img/btn_bg.jpg);font-size:1.2rem;padding:24px 0;cursor: pointer;}
@@ -45,8 +45,23 @@
 
 #cotrol{position:absolute;top:0;left:0;justify-content:center;align-items:center;background:#000000b6;width:100%;height:100%;z-index:999;opacity:0;display:none;transition:.5s;}
 #cotrol.on{display:flex;opacity:1;;}
-#cotrol img{max-width:220px;}
+#cotrol img{max-width:220px;transition:1.2s;animation:bounce 2.6s infinite;}
 
+
+@keyframes bounce{
+    0%{ 
+        transform:scale(1);
+    }
+    80%{ 
+        transform:scale(1.15);
+    }
+    90%{ 
+        transform:scale(1.15);
+    }
+    100%{ 
+        transform:scale(1);
+    }
+}
 @keyframes item_modal{
     0% {
         opacity:0;
@@ -90,8 +105,8 @@
 }
 
 #reward.on{display: flex;}
-#reward div.on{display:block;}
-#reward > div{position:absolute;top:0;left:0;display:flex;flex-direction:column;align-items: center;justify-content:flex-start;width:100%;height:100%;margin-top:26%;}
+#reward > div.on{display:flex;}
+#reward > div{position:absolute;top:0;left:0;display:none;flex-direction:column;align-items: center;justify-content:flex-start;width:100%;height:100%;margin-top:26%;}
 #reward .coupon{width:60%;}
 #reward .txt_area{margin:60px auto 120px;text-align:center;}
 #reward .tit{font-weight:800;color:#930000;letter-spacing:-.02em;font-size:32px;margin-bottom:8px}
@@ -141,16 +156,36 @@
                 <a class="btn download" href="./reward01.html"><img src="./img/btn_download.png"></a>
                 <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
             </div>
-            <!-- <div class="reward02">
+            <div class="reward02">
                 <img class="coupon" src="./img/reward02_coupon.png">
                 <div class="txt_area">
-                    <p class="tit">2만원 할인</p>
+                    <p class="tit">1만원 할인</p>
                     <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
                     <p class="comment">7만원 이상 주문 시 사용 가능</p>
                 </div>
                 <a class="btn download" href="./reward02.html"><img src="./img/btn_download.png"></a>
                 <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
-            </div> -->
+            </div>
+            <div class="reward03">
+                <img class="coupon" src="./img/reward03_coupon.png">
+                <div class="txt_area">
+                    <p class="tit">5천원 할인</p>
+                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
+                    <p class="comment">7만원 이상 주문 시 사용 가능</p>
+                </div>
+                <a class="btn download" href="./reward03.html"><img src="./img/btn_download.png"></a>
+                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
+            </div>
+            <div class="reward04">
+                <img class="coupon" src="./img/reward04_coupon.png">
+                <div class="txt_area">
+                    <p class="tit">타바스코 미니어처</p>
+                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
+                    <p class="comment">＊소진 시,치즈케이크 제공</p>
+                </div>
+                <a class="btn download" href="./reward04.html"><img src="./img/btn_download.png"></a>
+                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
+            </div>
         </article>
 
     </div>
@@ -258,11 +293,11 @@ $(document).ready(function(){
         if (onCount === 5) {
             setTimeout(function() {
                 $('#reward').addClass('on');
-                var rewardImages = $('#reward img');
+                var rewardImages = $('#reward > div');
                 var randomIndex = Math.floor(Math.random() * rewardImages.length);
                 rewardImages.removeClass('on');
                 rewardImages.eq(randomIndex).addClass('on');
-            }, 3000); // 4000 milliseconds = 4 seconds
+            }, 2500); 
         }
     }
 
