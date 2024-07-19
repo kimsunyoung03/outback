@@ -82,6 +82,9 @@
 
 
 <script>
+var trf_f_x = 0;
+var trf_f_y = 0;
+    
 var element = document.querySelector('.v-img-zoom--item');
 panzoom(element, {
   zoomSpeed: 0.200,
@@ -106,8 +109,8 @@ $(document).ready(function(){
         //console.log(getFirstTrf);
         var trfFirstRplace = getFirstTrf.replace(")", "");
         var trfFirstSplit = trfFirstRplace.split(",");
-        var trf_f_x = trfFirstSplit[4];
-        var trf_f_y = trfFirstSplit[5];
+        trf_f_x = trfFirstSplit[4];
+        trf_f_y = trfFirstSplit[5];
     
         console.log(trf_f_x);
         console.log(trf_f_y);
