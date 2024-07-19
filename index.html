@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+<script src='./common.js'></script>
+<link rel="stylesheet" href="./style.css" />
+<title>TEST</title>
+</head>
+<body>
+<article id="outback_game_pc">
+
+    <div class="frame_wrap">
+        <img class="logo" src="./img/logo.png">
+        <img class="frame" src="./img/frame_pc.png">
+        <div class="count_area">
+            <p><span class="count">0</span>&nbsp;/&nbsp;5</p>
+        </div>
+        <div class="bottom_item">
+            <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프">
+            <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">    
+            <img id="item4" src="./img/item4.png" alt="패션후르츠 슈림프 샐러드">
+            <img id="item1" src="./img/item1.png" alt="수박 그라나따">
+            <img id="item3" src="./img/item3.png" alt="망고 그라나따">
+        </div>
+        <article id="start_modal" class="on">
+            <div class="modal_wrap">
+                <img src="./img/start_pc.png" alt="숨은맵시를 찾아서">
+            </div>
+        </article>
+        <article id="cotrol" class="on">
+            <img src="./img/cotrol_pc.png">
+        </article> 
+
+        <article id="reward">
+            <div class="reward01">
+                <iframe src="./reward01.html" width="360" height="600" frameborder='0' ></iframe>
+            </div>
+            <div class="reward02">
+                <iframe src="./reward02.html" width="360" height="600" frameborder='0' ></iframe>
+            <div class="reward03">
+                <iframe src="./reward03.html" width="360" height="600" frameborder='0' ></iframe>
+            </div>
+            <div class="reward04">
+                <iframe src="./reward04.html" width="360" height="600" frameborder='0' ></iframe>
+            </div>
+        </article>
+    </div>
+
+    <div class="game_wrap v-img-zoom" id="myPanzoom"> 
+        <div class="v-img-zoom--wrapper"  >
+            <div class="v-img-zoom--item">
+                <div  class="f-panzoom__content">
+                    <img src="./img/Background.png"  usemap="#imgmap202471885638">
+                    <img src="./img/item1_check.png" class="pin_s" id="item1_check">
+                    <img src="./img/item2_check.png" class="pin_s" id="item2_check">
+                    <img src="./img/item3_check.png" class="pin_s" id="item3_check">
+                    <img src="./img/item4_check.png" class="pin_s" id="item4_check">
+                    <img src="./img/item5_check.png" class="pin_s" id="item5_check">
+                </div>
+                <map id="imgmap202471885638" name="imgmap202471885638">
+                    <area id="area1" shape="rect" alt="수박 그라나따" title="" coords="448,1364,660,1576" />
+                    <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프" title="" coords="2220,516,2460,756" />
+                    <area id="area3" shape="rect" alt="망고 그라나따" title="" coords="3568,2416,3856,2704" />
+                    <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드" title="" coords="628,2732,860,2964"  />
+                    <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" title="" coords="300,5044,596,5340"/>
+                </map>
+            </div>
+        </div>
+        <div class="item_modal">
+            <img id="item1_poup" src="./img/item1_popup.png" alt="수박 그라나따(팝업)">
+            <img id="item2_poup" src="./img/item2_popup.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프(팝업)">
+            <img id="item3_poup" src="./img/item3_popup.png" alt="망고 그라나따(팝업)">
+            <img id="item4_poup" src="./img/item4_popup.png" alt="패션후르츠 슈림프 샐러드(팝업)">
+            <img id="item5_poup" src="./img/item5_popup.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce(팝업)">
+        </div>
+    </div>
+</article>
+
+
+<script>
+var element = document.querySelector('.v-img-zoom--item');
+panzoom(element, {
+  zoomSpeed: 0.200,
+  pinchSpeed: 2,
+  maxZoom:1,
+  minZoom: .165,
+  zoomDoubleClickSpeed: 0,
+  initialX: -103.353,
+  initialY: -3054.69,
+  initialZoom:0.527106,
+});
+
+
+$(document).ready(function(){
+
+
+$('#cotrol').on("click touchstart", function (e) {
+    $(this).removeClass('on');
+})
+
+$('#start_modal').click(function(){
+    $('#start_modal').removeClass('on')
+})
+
+$('.item_modal img').click(function(){
+    $(this).removeClass('on');
+    updateCount();
+});
+$("#area1").on("click touchstart", function (e) {
+    $('#item1_poup').addClass('on');
+    $('#item1_check').addClass('on');
+    $('#item1').addClass('off');
+    updateCount();
+})
+$("#area2").on("click touchstart", function (e) {
+    $('#item2_poup').addClass('on');
+    $('#item2_check').addClass('on');
+    $('#item2').addClass('off');
+    updateCount();
+})
+$("#area3").on("click touchstart", function (e) {
+    $('#item3_poup').addClass('on');
+    $('#item3_check').addClass('on');
+    $('#item3').addClass('off');
+    updateCount();
+})
+$("#area4").on("click touchstart", function (e) {
+    $('#item4_poup').addClass('on');
+    $('#item4_check').addClass('on');
+    $('#item4').addClass('off');
+    updateCount();
+})
+$("#area5").on("click touchstart", function (e) {
+    $('#item5_poup').addClass('on');
+    $('#item5_check').addClass('on');
+    $('#item5').addClass('off');
+    updateCount();
+})
+
+function updateCount() {
+    var onCount = $('.item_modal img.on').length;
+    $('.count').text(onCount);
+    
+    if (onCount === 5) {
+        setTimeout(function() {
+            $('#reward').addClass('on');
+            $('.reward01').addClass('on');
+        }, 2500); 
+    }
+}
+
+$('.retry').on("click touchstart", function (e) {
+    location.reload();
+})
+
+});
+</script>
+</body>
+</html>

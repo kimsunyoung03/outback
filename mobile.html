@@ -6,6 +6,7 @@
 <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
+<script src='./common.js'></script>
 <link rel="stylesheet" href="./style.css" />
 <title>TEST</title>
 </head>
@@ -34,49 +35,6 @@
         <article id="cotrol" class="on">
             <img src="./img/cotrol.png">
         </article> 
-
-        <article id="reward">
-            <div class="reward01">
-                <img class="coupon" src="./img/reward01_coupon.png">
-                <div class="txt_area">
-                    <p class="tit">2만원 할인</p>
-                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
-                    <p class="comment">7만원 이상 주문 시 사용 가능</p>
-                </div>
-                <a class="btn download" href="./reward01.html"><img src="./img/btn_download.png"></a>
-                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
-            </div>
-            <div class="reward02">
-                <img class="coupon" src="./img/reward02_coupon.png">
-                <div class="txt_area">
-                    <p class="tit">1만원 할인</p>
-                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
-                    <p class="comment">7만원 이상 주문 시 사용 가능</p>
-                </div>
-                <a class="btn download" href="./reward02.html"><img src="./img/btn_download.png"></a>
-                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
-            </div>
-            <div class="reward03">
-                <img class="coupon" src="./img/reward03_coupon.png">
-                <div class="txt_area">
-                    <p class="tit">5천원 할인</p>
-                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
-                    <p class="comment">7만원 이상 주문 시 사용 가능</p>
-                </div>
-                <a class="btn download" href="./reward03.html"><img src="./img/btn_download.png"></a>
-                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
-            </div>
-            <div class="reward04">
-                <img class="coupon" src="./img/reward04_coupon.png">
-                <div class="txt_area">
-                    <p class="tit">타바스코 미니어처</p>
-                    <p class="date"><span>쿠폰 사용 기간</span>&nbsp;2024.09.01 ~ 2024.10.31</p>
-                    <p class="comment">＊소진 시,치즈케이크 제공</p>
-                </div>
-                <a class="btn download" href="./reward04.html"><img src="./img/btn_download.png"></a>
-                <a class="btn retry" onclick='top.location="javascript:location.reload()"'><img src="./img/btn_retry.png"></a>
-            </div>
-        </article>
     </div>
 
     <div class="game_wrap v-img-zoom" id="myPanzoom"> 
@@ -133,11 +91,6 @@ $(document).ready(function(){
 
     $('.start_button').click(function(){
         $('#start_modal').removeClass('on')
-        // panzoom(element,{
-        //     initialX:-193.237,
-        //     initialY:-504.765,
-        //     initialZoom:0.257492,
-        // })
     })
     
     $('.item_modal img').click(function(){
@@ -181,11 +134,7 @@ $(document).ready(function(){
         
         if (onCount === 5) {
             setTimeout(function() {
-                $('#reward').addClass('on');
-                var rewardImages = $('#reward > div');
-                var randomIndex = Math.floor(Math.random() * rewardImages.length);
-                rewardImages.removeClass('on');
-                rewardImages.eq(randomIndex).addClass('on');
+                location.href = './reward01.html';
             }, 2500); 
         }
     }
