@@ -135,7 +135,7 @@ $('.v-img-zoom--item').on("click", function (e) {
     
     // 최종적으로 x, y 의 범위 안에 있지 않으면 다시 초기화 되도록 해야한다.
     if(trf_x < trf_f_x-1000) {
-        alert("x값이 우측으로 선을 넘었습니다.");
+        $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
     } else if(trf_x > trf_f_x+1000) {
         alert("x값이 좌측으로 선을 넘었습니다.");
     }
