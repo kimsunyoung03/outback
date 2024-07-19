@@ -96,6 +96,14 @@ panzoom(element, {
 
 
 $(document).ready(function(){
+    var getFirstStyle = element.style;
+    //console.log(getFirstStyle);
+    var getFirstTrf = getStyle.transform;
+    //console.log(getFirstTrf);
+    var trfFirstRplace = getFirstTrf.replace(")", "");
+    var trfFirstSplit = trfFirstRplace.split(",");
+    var trf_f_x = trfFirstSplit[4];
+    var trf_f_y = trfFirstSplit[5];
 
 // 이미지 드래그 이벤트
 $('.v-img-zoom--item').on("click", function (e) {
@@ -109,6 +117,16 @@ $('.v-img-zoom--item').on("click", function (e) {
     console.log(trfSplit);
     console.log(trfSplit[4]);
     console.log(trfSplit[5]);
+
+    var trf_x = trfSplit[4];
+    var trf_y = trfSplit[5];
+
+    // 최종적으로 x, y 의 범위 안에 있지 않으면 다시 초기화 되도록 해야한다.
+    if(trf_x < trf_f_x-1000) {
+        alert("x값이 선을 넘었습니다.");
+    } esle if(trf_y < trf_f_y-1000) {
+        alert("y값이 선을 넘었습니다.");
+    }
 });
     
 $('#cotrol').on("click touchstart", function (e) {
