@@ -2,8 +2,8 @@
 
 [현재작업중]
 1. https://kimsunyoung03.github.io/test/mobile.html : 현재작업중인 파일 (기존 mobile3.html 에서 변경 2024-07-19 16:57 )
-  - https://github.com/anvaka/panzoom 라이브러리사용
-  - 현재 이슈 :: 축소시 여백이동
+    - https://github.com/anvaka/panzoom 라이브러리사용
+    - 현재 이슈 :: 축소시 여백이동
 2. https://kimsunyoung03.github.io/test/reward01.html : 2만원 쿠폰(리워드)
 3. https://kimsunyoung03.github.io/test/reward02.html : 1만원 쿠폰(리워드)
 4. https://kimsunyoung03.github.io/test/reward03.html : 5천원 쿠폰(리워드)
