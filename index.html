@@ -104,8 +104,11 @@ $('.v-img-zoom--item').on("click", function (e) {
     console.log(getStyle);
     var getTrf = getStyle.transform;
     console.log(getTrf);
-    var trfSplit = getTrf.split(",");
+    var trfRplace = getTrf.replace(")", "");
+    var trfSplit = trfRplace.split(",");
     console.log(trfSplit);
+    console.log(trfSplit[4]);
+    console.log(trfSplit[5]);
 });
     
 $('#cotrol').on("click touchstart", function (e) {
