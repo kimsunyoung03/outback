@@ -116,20 +116,21 @@ $(document).ready(function(){
     
 /* 이미지 드래그 이벤트 => 드래그 이벤트로 변경해야함 */
 $('.v-img-zoom--item').on("mouseup touchend", function (e) {
-    console.log(element);
+    //console.log(element);
     var getStyle = element.style;
-    console.log(getStyle);
+    //console.log(getStyle);
     var getTrf = getStyle.transform;
-    console.log(getTrf);
+    //console.log(getTrf);
     var trfRplace = getTrf.replace(")", "");
     var trfSplit = trfRplace.split(",");
     console.log(trfSplit);
-    console.log(trfSplit[4]);
-    console.log(trfSplit[5]);
+    //console.log(trfSplit[4]);
+    //console.log(trfSplit[5]);
 
     var trf_x = trfSplit[4];
     var trf_y = trfSplit[5];
 
+    panzoom(element)
     //console.log(panzoom(element).getTransform());
 
     // console.log("초기 x값 : ", trf_f_x);
