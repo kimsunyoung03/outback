@@ -115,7 +115,7 @@ $(document).ready(function(){
     };
     
 /* 이미지 드래그 이벤트 => 드래그 이벤트로 변경해야함 */
-$('.v-img-zoom--item').on("drag", function (e) {
+$('.v-img-zoom--item').on("mouseup touchend", function (e) {
     console.log(element);
     var getStyle = element.style;
     console.log(getStyle);
