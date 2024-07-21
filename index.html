@@ -139,9 +139,9 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
     // 범위를 세밀하게 조정 해야한다.
     // 휠 이벤트 발생으로 인해 스케일 변경에 대한 범위를 계산해야 한다.
     if(trf_x < trf_f_x-500) {
-        $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
+        // $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
     } else if(trf_x > trf_f_x+500) {
-        $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
+        // $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
         // alert("x값이 좌측으로 선을 넘었습니다.");
     }
     // esle if(trf_y < trf_f_y-1000) {
