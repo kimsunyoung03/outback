@@ -84,6 +84,7 @@
 <script>
 var trf_f_x = 0; // transform의 처음 x 값 전역변수
 var trf_f_y = 0; // transform의 처음 y 값 전역변수
+var trf_f_scale = 0; // ttransform의 처음 scale 값 전역변수
     
 var element = document.querySelector('.v-img-zoom--item');
 var pz_elm = panzoom(element, {
@@ -108,10 +109,14 @@ $(document).ready(function(){
         //console.log(getFirstTrf);
         var trfFirstRplace = getFirstTrf.replace(")", ""); // 좌표값의 필요없는 ) 를 제거
         var trfFirstSplit = trfFirstRplace.split(","); // ',' 를 기준으로 배열로 나눈다.
-        trf_f_x = trfFirstSplit[4]; // 초기 x
-        trf_f_y = trfFirstSplit[5]; // 초기 y
+       
+        trf_f_x = pz_elm.getTransform().x // trfFirstSplit[4]; // 초기 x
+        trf_f_y = pz_elm.getTransform().y // trfFirstSplit[5]; // 초기 y
+        trf_f_scale = pz_elm.getTransform().scale; // 초기 scale
+        
         console.log(trf_f_x);
         console.log(trf_f_y);
+        console.log(trf_f_scale);
     };
     
 /* 이미지 드래그 이벤트 => 드래그 이벤트로 변경해야함 */
