@@ -155,7 +155,8 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
         //         });
         // pz_elm = pz_elm.setTransform({x: -48, y: -1444}); // now it is topLeft
 
-        pz_elm.smoothMoveTo(-48, -1444);
+        // instance.smoothZoom(0, 0, 0.5);
+        pz_elm.smoothMoveTo(trf_f_x, trf_f_y, trf_f_scale);
     } else if(trf_x > trf_f_x+500) {
         // $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
         // alert("x값이 좌측으로 선을 넘었습니다.");
