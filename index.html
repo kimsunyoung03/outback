@@ -88,14 +88,16 @@ var trf_f_scale = 0; // transform의 처음 scale 값 전역변수
     
 var element = document.querySelector('.v-img-zoom--item');
 var pz_elm = panzoom(element, {
-                      zoomSpeed: 0.200,
-                      pinchSpeed: 2,
-                      maxZoom:1,
-                      minZoom: .165,
-                      zoomDoubleClickSpeed: 0,
-                      initialX: -103.353,
-                      initialY: -3054.69,
-                      initialZoom:0.527106,
+                        zoomSpeed: 0.200,
+                        pinchSpeed: 2,
+                        maxZoom:1,
+                        minZoom: .165,
+                        zoomDoubleClickSpeed: 0,
+                        initialX: -103.353,
+                        initialY: -3054.69,
+                        initialZoom:0.527106,
+                        bounds: true,
+                        boundsPadding: 0.1
                     });
 
 
@@ -157,7 +159,12 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
 
         // instance.smoothZoom(0, 0, 0.5);
         // pz_elm.smoothMoveTo(trf_f_x, trf_f_y, trf_f_scale);
-        pz_elm.smoothZoom(trf_f_x, trf_f_y, trf_f_scale);
+        // pz_elm.smoothZoom(trf_f_x, trf_f_y, trf_f_scale);
+
+//         panzoom(element, {
+//   bounds: true,
+//   boundsPadding: 0.1
+// });
     } else if(trf_x > trf_f_x+500) {
         // $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
         // alert("x값이 좌측으로 선을 넘었습니다.");
