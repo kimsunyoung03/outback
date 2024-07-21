@@ -136,9 +136,9 @@ $('.v-img-zoom--item').on("drag", function (e) {
     // 최종적으로 x, y 의 범위 안에 있지 않으면 다시 초기화 되도록 해야한다.
     // 범위를 세밀하게 조정 해야한다.
     // 휠 이벤트 발생으로 인해 스케일 변경에 대한 범위를 계산해야 한다.
-    if(trf_x < trf_f_x-1000) {
+    if(trf_x < trf_f_x-500) {
         $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
-    } else if(trf_x > trf_f_x+1000) {
+    } else if(trf_x > trf_f_x+500) {
         $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
         // alert("x값이 좌측으로 선을 넘었습니다.");
     }
