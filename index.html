@@ -82,8 +82,8 @@
 
 
 <script>
-var trf_f_x = 0;
-var trf_f_y = 0;
+var trf_f_x = 0; // transform의 처음 x 값 전역변수
+var trf_f_y = 0; // transform의 처음 y 값 전역변수
     
 var element = document.querySelector('.v-img-zoom--item');
 panzoom(element, {
@@ -129,6 +129,8 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
 
     var trf_x = trfSplit[4];
     var trf_y = trfSplit[5];
+
+    console.log(element.getTransform());
 
     // console.log("초기 x값 : ", trf_f_x);
     // console.log("초기 x값에 -1000 : ", trf_f_x-1000);
