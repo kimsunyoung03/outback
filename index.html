@@ -86,16 +86,16 @@ var trf_f_x = 0; // transform의 처음 x 값 전역변수
 var trf_f_y = 0; // transform의 처음 y 값 전역변수
     
 var element = document.querySelector('.v-img-zoom--item');
-panzoom(element, {
-  zoomSpeed: 0.200,
-  pinchSpeed: 2,
-  maxZoom:1,
-  minZoom: .165,
-  zoomDoubleClickSpeed: 0,
-  initialX: -103.353,
-  initialY: -3054.69,
-  initialZoom:0.527106,
-});
+var pz_elm = panzoom(element, {
+                      zoomSpeed: 0.200,
+                      pinchSpeed: 2,
+                      maxZoom:1,
+                      minZoom: .165,
+                      zoomDoubleClickSpeed: 0,
+                      initialX: -103.353,
+                      initialY: -3054.69,
+                      initialZoom:0.527106,
+                    });
 
 
 $(document).ready(function(){
@@ -130,8 +130,8 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
     var trf_x = trfSplit[4];
     var trf_y = trfSplit[5];
 
-    panzoom(element)
-    //console.log(panzoom(element).getTransform());
+    //panzoom(element)
+    console.log(pz_elm.getTransform());
 
     // console.log("초기 x값 : ", trf_f_x);
     // console.log("초기 x값에 -1000 : ", trf_f_x-1000);
