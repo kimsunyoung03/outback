@@ -84,7 +84,7 @@
 <script>
 var trf_f_x = 0; // transform의 처음 x 값 전역변수
 var trf_f_y = 0; // transform의 처음 y 값 전역변수
-var trf_f_scale = 0; // ttransform의 처음 scale 값 전역변수
+var trf_f_scale = 0; // transform의 처음 scale 값 전역변수
     
 var element = document.querySelector('.v-img-zoom--item');
 var pz_elm = panzoom(element, {
@@ -148,12 +148,14 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
     // 휠 이벤트 발생으로 인해 스케일 변경에 대한 범위를 계산해야 한다.
     if(trf_x < trf_f_x-500) {
         // $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
-        pz_elm = panzoom(element, {
-                  initialX: -48,
-                  initialY: -1444,
-                  // transformOrigin: {x: -48, y: -1444}
-                });
+        // pz_elm = panzoom(element, {
+        //           initialX: -48,
+        //           initialY: -1444,
+        //           // transformOrigin: {x: -48, y: -1444}
+        //         });
         // pz_elm = pz_elm.setTransform({x: -48, y: -1444}); // now it is topLeft
+
+        pz_elm.smoothMoveTo(-48, -1444);
     } else if(trf_x > trf_f_x+500) {
         // $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
         // alert("x값이 좌측으로 선을 넘었습니다.");
