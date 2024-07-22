@@ -28,6 +28,25 @@
         </article>
     </div>
 </section>
+<script>
+    $(document).ready(function(){
+        $('.btn.download').click(function(event) {
+            event.preventDefault(); // 기본 링크 이동 방지
 
+            // 이미지 다운로드
+            var link = document.createElement('a');
+            link.href = './img/reward01_detail.png';
+            link.download = 'reward01_detail.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // 다운로드 완료 메시지 표시
+            setTimeout(function(){
+                alert('이미지가 다운로드되었습니다. 다운로드함을 확인하세요.');
+            }, 1000); // 1초 대기 후 메시지 표시
+        });
+    });
+</script>
 </body>
 </html>
