@@ -23,29 +23,28 @@
             </div>
             <div class="btn_area">
             <a class="btn download" href="./reward03_detail.html"><img src="./img/btn_download.png"></a>
-            <a class="btn retry" href="javascript:history.back();"><img src="./img/btn_retry.png"></a>
+            <a class="btn retry_m"  onClick="history.back()"><img src="./img/btn_retry.png"></a>
+            <a class="btn retry_pc" onClick="top.location='javascript:location.reload()'"><img src="./img/btn_retry.png"></a>
             </div>
         </article>
     </div>
 </section>
 <script>
-    $(document).ready(function(){
-        $('.btn.download').click(function(event) {
-            event.preventDefault(); // 기본 링크 이동 방지
+    $(document).ready(function() {
+        $('.download').on('click', function(e) {
+            e.preventDefault(); // 기본 동작을 막음
 
-            // 이미지 다운로드
-            var link = document.createElement('a');
-            link.href = './img/reward03_detail.png';
-            link.download = 'reward03_detail.png';
+            // 쿠폰 이미지 다운로드
+            const link = document.createElement('a');
+            link.href = './img/reward03_coupon.png';
+            link.download = 'reward03_coupon.png';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
 
-            // 다운로드 완료 후 href 링크로 이동
-            var hrefLink = $(this).attr('href');
-            setTimeout(function(){
-                window.location.href = hrefLink;
-            }, 1000); // 1초 대기 후 링크로 이동
+            setTimeout(function() {
+                window.location.href = 'reward03_detail.html';
+            }, 500);
         });
     });
 </script>
