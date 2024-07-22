@@ -19,6 +19,9 @@
         <div class="count_area">
             <p><span class="count">0</span>&nbsp;/&nbsp;5</p>
         </div>
+        <div class="repeat">
+            <img src="./img/repeat.png" alt="임시아이콘_재정렬">
+        </div>
         <div class="bottom_item">
             <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프">
             <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">    
@@ -70,17 +73,34 @@
 
 <script>
 var element = document.querySelector('.v-img-zoom--item');
-panzoom(element, {
-  zoomSpeed: 0.200,
-  pinchSpeed: 2,
-  maxZoom: 5,
-  minZoom: 0.1,
-  zoomDoubleClickSpeed: 0,
-  initialX: -54.2044,
-  initialY: 76.2663,
-  initialZoom: 0.15,
+// panzoom(element, {
+//   zoomSpeed: 0.200,
+//   pinchSpeed: 2,
+//   maxZoom: 5,
+//   minZoom: 0.1,
+//   zoomDoubleClickSpeed: 0,
+//   initialX: -54.2044,
+//   initialY: 76.2663,
+//   initialZoom: 0.15,
+// });
+var pz_elm = panzoom(element, {
+    zoomSpeed: 0.200,
+    pinchSpeed: 2,
+    maxZoom:1,
+    minZoom: .165,
+    zoomDoubleClickSpeed: 0,
+    initialX: -54.2044,
+    initialY: -169.931,
+    initialZoom: 0.15,
+    padding:1.2
 });
 
+$('.repeat').on("click", function() {
+    pz_elm.smoothZoom(0,0, 0.15);
+    setTimeout(function() {
+        pz_elm.smoothMoveTo(-54.2044, -169.931);
+    }, 500);
+})
 
 $(document).ready(function(){
 
