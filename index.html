@@ -96,8 +96,6 @@ var pz_elm = panzoom(element, {
                         initialX: -103.353,
                         initialY: -3054.69,
                         initialZoom:0.527106,
-                        bounds: true, // 경계처리 on
-                        boundsPadding: 0.1 // 경계처리 값 (기본 :0.05)
                     });
 
 
@@ -155,7 +153,7 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
      * 3. 범위를 세밀하게 조정 해야한다. (x-400, y+400 등...)
      * 4. 휠 이벤트 발생으로 인해 스케일 변경에 따른 범위 계산을 해야한다? => 스케일 변경 상관없이 x,y(0,0)으로 초기화
      */
-    if(trf_x < trf_f_x-500) { // 처음 x의 값보다 -500
+    if(trf_x < trf_f_x-50) { // 처음 x의 값보다 -500
         // css에 x,y를 직접 지정한다. => 다만 이렇게 해도 이미지 위치 변경시 버그가 발생한다. => 지워도 됨
         // $('.v-img-zoom--item').css("transform", "matrix(0.527106, 0, 0, 0.527106," + trf_f_x + "," + trf_f_y + ")");
 
@@ -170,11 +168,11 @@ $('.v-img-zoom--item').on("mouseup touchend", function (e) {
            부드럽게 줌 변경 및 이동 : instance.smoothZoom(0, 0, 0.5) */
         pz_elm.smoothMoveTo(0, 0); // 부드럽게 이동
 
-    } else if(trf_x > trf_f_x+500) { // 처음 x의 값보다 +500
-        // alert("x값이 좌측으로 선을 넘었습니다.");
-    } else if(trf_y < trf_f_y-400) { // 처음 y의 값보다 -400
-        
-    } else if(trf_y > trf_f_y+400) { // 처음 y의 값보다 +400
+    } else if(trf_x > trf_f_x+50) { // 처음 x의 값보다 +500
+        pz_elm.smoothMoveTo(0, 0);
+    } else if(trf_y < trf_f_y-50) { // 처음 y의 값보다 -400
+        pz_elm.smoothMoveTo(0, 0);
+    } else if(trf_y > trf_f_y+50) { // 처음 y의 값보다 +400
         pz_elm.smoothMoveTo(0, 0); // 부드럽게 이동
     }
 });
