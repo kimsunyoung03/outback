@@ -31,7 +31,7 @@
 #start_modal.on .modal_wrap{bottom:0}
 #start_modal .modal_wrap{display:flex;flex-direction: column;justify-content: flex-end;position:absolute;bottom:-1500px;transition:1.2s;}
 #start_modal img{width:100%;max-width:100%;}
-#start_modal button{width:100%;border:none;text-align:center;font-weight:500;color:#fff;background:url(./img/btn_bg.jpg);font-size:1.2rem;padding:24px 0;cursor: pointer;}
+#start_modal button{width:100%;border:none;text-align:center;font-weight:500;color:#fff;background:url('./img/btn_bg.jpg');font-size:1.2rem;padding:24px 0;cursor: pointer;}
 .f-panzoom__content{position: relative;transform: matrix(1, 0, 0, 1, 0, 0);width: fit-content;box-shadow: #412e2d4b 2px 0px 70px 80px;}
 .pin_s{display:none;width: 100%;height: 100%;position: absolute;z-index: 999;top: 0;left: 0;background-size: contain;pointer-events: none;}
 .pin_s.on{display:block;}
