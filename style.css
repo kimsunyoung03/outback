@@ -2,7 +2,10 @@
 *{margin:0;padding:0;font-family:"Pretendard Variable", sans-serif;text-decoration:none;list-style:none; -ms-content-zooming: none;-ms-touch-action: pan-x pan-y;touch-action: pan-y;}
 :root {--vh: 100%;}
 body{  overscroll-behavior-x: none;}
-
+html {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
 
 #outback_game_mobile{width:100%;height: var(--vh);display:flex;justify-content:center;align-items: center;position:relative;background: url(./img/wrap_background.jpg);}
 .frame_wrap{margin:0 auto;max-width:480px;height: var(--vh);overflow:hidden;position:absolute;width:100%;}
@@ -20,8 +23,8 @@ body{  overscroll-behavior-x: none;}
 .game_wrap { position: relative; width:90%; max-width:480px;top:-50px;overflow: hidden;background:url('./img/Background_blur.png');}
 #outback_game_mobile .game_wrap {height:80%;max-height:750px;}
 
-.item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block}
-.item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;}
+.item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block;visibility: inherit;}
+.item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;pointer-events:none;}
 .item_modal img.on{animation: item_modal 4s;}
 .item_modal.on{background:rgb(0 0 0 / 43%)}
 .zoom_pin{z-index: 999;}
@@ -42,7 +45,7 @@ body{  overscroll-behavior-x: none;}
 #cotrol.on{display:flex;opacity:1;;}
 #cotrol img{max-width:220px;transition:1.2s;animation:bounce 2.6s infinite;}
 
-
+ 
 @keyframes bounce{
     0%{ 
         transform:scale(1);
