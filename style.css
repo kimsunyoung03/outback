@@ -21,8 +21,9 @@ body{  overscroll-behavior-x: none;}
 #outback_game_mobile .game_wrap {height:80%;max-height:750px;}
 
 .item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block}
-.item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;}
-.item_modal img.on{animation: item_modal 4s;}
+.item_modal img {position:absolute;top:30%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;display:none;}
+/* .item_modal img.on{animation: item_modal 4s;} */
+.item_modal img.on{display:block;pointer-events:auto;}
 .item_modal.on{background:rgb(0 0 0 / 43%)}
 .zoom_pin{z-index: 999;}
 .control_txt01{color: #fff;position: absolute;right:50px;top: 100px;text-align:right;font-weight:600;font-size:14px}
