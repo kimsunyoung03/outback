@@ -21,3 +21,9 @@ document.documentElement.addEventListener('touchend', function (event) {
     }
     lastTouchEnd = now;
 }, false);
+
+/* 이전페이지 기억못하게 하기*/
+history.pushState(null, null, location.href)
+	window.onpopstate = function () {
+	history.go(1)
+}
