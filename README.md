@@ -6,13 +6,11 @@
 
 	- https://github.com/anvaka/panzoom 라이브러리사용
     - PC에서 리워드 화면은 Iframe으로 나옵니다.
-    ※ (이슈):: 축소시 여백이동 -> 좌표이동시 강제로 원점으로 돌아오게끔 처리 -> 테스트필요
 
 2.https://kimsunyoung03.github.io/test/mobile.html (모바일버전)
 
 	- https://github.com/anvaka/panzoom 라이브러리사용
     - PC에서 리워드 화면은 Iframe으로 나옵니다.
-    ※ (이슈):: 축소시 여백이동 -> 해결못함
 
 
 
