@@ -22,7 +22,7 @@ html {-ms-touch-action: manipulation;touch-action: manipulation;-webkit-transfor
 #outback_game_mobile .game_wrap {height:80%;max-height:750px;}
 
 .item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block;visibility: inherit;}
-.item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;pointer-events:none;}
+.item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%) translate3d(0, 0, 0);transition:1.2s;width:50%;height:auto;transform-origin: center;pointer-events:none;}
 .item_modal img.on{animation: item_modal 2s;}
 .item_modal.on{background:rgb(0 0 0 / 43%)}
 .zoom_pin{z-index: 999;}
@@ -36,6 +36,7 @@ html {-ms-touch-action: manipulation;touch-action: manipulation;-webkit-transfor
 #start_modal img{width:100%;max-width:100%;}
 #start_modal button{width:100%;border:none;text-align:center;font-weight:500;color:#fff;background:url('./img/btn_bg.jpg');font-size:1.2rem;padding:24px 0;cursor: pointer;}
 .f-panzoom__content{position: relative;transform: matrix(1, 0, 0, 1, 0, 0);width: fit-content;}
+.f-panzoom__content img{transform:translate3d(0, 0, 0);}
 .pin_s{width: 100%;height: 100%;position: absolute;z-index: 999;top: 0;left: 0;background-size: contain;pointer-events: none;visibility:hidden;}
 .pin_s.on{visibility:visible;}
 
@@ -43,18 +44,18 @@ html {-ms-touch-action: manipulation;touch-action: manipulation;-webkit-transfor
 #cotrol.on{display:flex;opacity:1;;}
 #cotrol img{max-width:220px;transition:1.2s;animation:bounce 2.6s infinite;}
 
- 
+
 @keyframes bounce{
-    0%{ 
+    0%{
         transform:scale(1);
     }
-    80%{ 
+    80%{
         transform:scale(1.15);
     }
-    90%{ 
+    90%{
         transform:scale(1.15);
     }
-    100%{ 
+    100%{
         transform:scale(1);
     }
 }
@@ -168,7 +169,7 @@ a.close_btn img{width:24px;}
 .btn{width:80%;margin:0 auto;display:flex;justify-content: center;align-items:center;}
 .btn.download{margin-bottom:0.6em}
 .btn img{width:100%;}
- 
+
 .coupon{width:80%;min-width:220px;margin-top:15%}
 .txt_area{margin:40px auto 32px;text-align:center;}
 .tit{font-weight:900;color:#a61400;letter-spacing:-.05em;font-size:42px;margin-bottom:8px}
@@ -190,14 +191,13 @@ a.close_btn img{width:24px;}
 
 
 
-.retry_pc{display: flex;}    
+.retry_pc{display: flex;}
 .retry_m{display:none;}
 .bttom_banner{display:none;}
 
 @media (max-width: 760px){
     .bttom_banner{display:block;}
-    .retry_pc{display: none;}    
+    .retry_pc{display: none;}
     .retry_m{display: flex;}
 }
 
-    
