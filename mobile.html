@@ -170,14 +170,13 @@
     })
 
     function updateCount() {
-        var onCount = $('.item_modal img.on').length;
-        $('.count').text(onCount);
-
-        if (onCount === 5) {
-            setTimeout(function () {
-                $('#reward').addClass('on');
-                $('.reward01').addClass('on');
-            }, 2500);
+    var onCount = $('.bottom_item img.off').length;
+    $('.count').text(onCount);
+    
+    if (onCount === 5) {
+            setTimeout(function() {
+                location.href = './reward01.html';
+            }, 2500); 
         }
     }
 </script>
