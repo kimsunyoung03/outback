@@ -2,16 +2,14 @@
 *{margin:0;padding:0;font-family:"Pretendard Variable", sans-serif;text-decoration:none;list-style:none; -ms-content-zooming: none;-ms-touch-action: pan-x pan-y;touch-action: pan-y;}
 :root {--vh: 100%;}
 body{  overscroll-behavior-x: none;}
-html {
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-}
+html {-ms-touch-action: manipulation;touch-action: manipulation;-webkit-transform: translate3d(0px,0px,0px);-ms-touch-action: none;}
+
 
 #outback_game_mobile{width:100%;height: var(--vh);display:flex;justify-content:center;align-items: center;position:relative;background: url(./img/wrap_background.jpg);}
 .frame_wrap{margin:0 auto;max-width:480px;height: var(--vh);overflow:hidden;position:absolute;width:100%;}
 .frame_wrap > img{z-index:999;pointer-events: none;position:absolute}
 .frame_wrap .frame{ top: 0; left: 0; width: 100%;height:850%; z-index: 999;}
-.frame_wrap .logo{top:15px;left:20px;width:50%;}
+.frame_wrap .logo{top:12px;left:20px;width:50%;}
 .frame_wrap .count_area{z-index: 999;position: absolute;bottom:110px;right: 0px;background: url(./img/count_bg.png) no-repeat right;width: 100px;height: 50px;border-radius: 30px 0 0 0;display: flex;justify-content: center;align-items: center;}
 .frame_wrap .count_area p{font-size:18px;font-weight:400;color:#fff;}
 .frame_wrap .count_area p span{color:#fdfa00;font-weight:800;}
@@ -25,12 +23,12 @@ html {
 
 .item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block;visibility: inherit;}
 .item_modal img {position:absolute;top:-100%;left:52%;transform:translate(-50%);transition:1.2s;width:50%;height:auto;transform-origin: center;pointer-events:none;}
-.item_modal img.on{animation: item_modal 4s;}
+.item_modal img.on{animation: item_modal 2s;}
 .item_modal.on{background:rgb(0 0 0 / 43%)}
 .zoom_pin{z-index: 999;}
 .control_txt01{color: #fff;position: absolute;right:40px;top:160px;text-align:right;font-weight:600;font-size:14px}
 .control_txt01::before{content:'';display:block;width:30px;height:30px;position:absolute;top:-20px;right:-29px;background:url('./img/arw.png')no-repeat;background-size:cover;transform: rotate(-29deg);}
-
+.v-img-zoom--item{width:fit-content;}
 #start_modal{position:absolute;width:100%;max-width:480px;height:var(--vh);z-index:99999;transition:1.2s;background:#00000000;pointer-events:none;}
 #start_modal.on{bottom:0;pointer-events:all;}
 #start_modal.on .modal_wrap{bottom:0}

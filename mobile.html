@@ -6,6 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 <script src='./common.js'></script>
+<script src='./fastclick.js'></script>
 <link rel="stylesheet" href="./style.css" />
 <title>아웃백</title>
 </head>
@@ -42,19 +43,33 @@
         <div class="v-img-zoom--wrapper"  >
             <div class="v-img-zoom--item">
                 <div  class="f-panzoom__content">
-                    <img src="./img/Background.webp"  usemap="#imgmap202471885638">
-                    <img src="./img/item1_check.webp" class="pin_s" id="item1_check">
-                    <img src="./img/item2_check.webp" class="pin_s" id="item2_check">
-                    <img src="./img/item3_check.webp" class="pin_s" id="item3_check">
-                    <img src="./img/item4_check.webp" class="pin_s" id="item4_check">
-                    <img src="./img/item5_check.webp" class="pin_s" id="item5_check">
+                        <img src="./img/Background_m.webp"  usemap="#imgmap2024723183915" loading="lazy">
+                        <img src="./img/item1_check_m.webp" class="pin_s" id="item1_check" loading="lazy">
+                        <img src="./img/item2_check_m.webp" class="pin_s" id="item2_check" loading="lazy">
+                        <img src="./img/item3_check_m.webp" class="pin_s" id="item3_check" loading="lazy">
+                        <img src="./img/item4_check_m.webp" class="pin_s" id="item4_check" loading="lazy">
+                        <img src="./img/item5_check_m.webp" class="pin_s" id="item5_check" loading="lazy">
                 </div>
-                <map id="imgmap202471885638" name="imgmap202471885638">
+                <!-- <map id="imgmap202471885638" name="imgmap202471885638">
                     <area id="area1" shape="rect" alt="수박 그라나따" title="" coords="448,1364,660,1576" />
                     <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프" title="" coords="2220,516,2460,756" />
                     <area id="area3" shape="rect" alt="망고 그라나따" title="" coords="3568,2416,3856,2704" />
                     <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드" title="" coords="628,2732,860,2964"  />
                     <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" title="" coords="300,5044,596,5340"/>
+                </map> -->
+                <!-- <map id="imgmap2024723181951" name="imgmap2024723181951">
+                    <area id="area1" shape="rect" alt="수박 그라나따"  coords="71,235,130,309">
+                    <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프" coords="382,82,446,149">
+                    <area id="area3" shape="rect" alt="망고 그라나따" coords="634,424,694,495">
+                    <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드"  coords="89,476,169,549">
+                    <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" coords="54,903,123,970">
+                </map> -->
+                <map id="imgmap2024723183915" name="imgmap2024723183915">
+                    <area id="area1" shape="rect" alt="수박 그라나따" coords="171,541,279,696">
+                    <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프"  coords="847,189,988,339">
+                    <area id="area3" shape="rect" alt="망고 그라나따" coords="1438,968,1556,1102">
+                    <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드" coords="211,1069,369,1214">
+                    <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" coords="110,2023,261,2152">
                 </map>
             </div>
         </div>
@@ -72,11 +87,11 @@
 <script>
 var element = document.querySelector('.v-img-zoom--item');
 var pz_elm = panzoom(element, {
-    maxZoom:.4,
-    minZoom: .165,
-    initialX: -54.2044,
-    initialY: -169.931,
-    initialZoom: 0.15,
+    maxZoom:1,
+    minZoom:0.45,
+    initialX:0,
+    initialY:0,
+    initialZoom:.45,
     smoothScroll: false,
     zoomDoubleClickSpeed: 1, 
     onDoubleClick: function(e) {
@@ -85,9 +100,9 @@ var pz_elm = panzoom(element, {
 });
 
 $('.repeat').on("click", function() {
-    pz_elm.smoothZoom(0,0, 0.15);
+    pz_elm.smoothZoom(0,0, 0.45);
     setTimeout(function() {
-        pz_elm.smoothMoveTo(-54.2044, -169.931);
+        pz_elm.smoothMoveTo(-57.732, -310.995);
     }, 500);
 })
 
@@ -139,16 +154,16 @@ $(document).ready(function(){
 
 
     function updateCount() {
-    var onCount = $('.item_modal img.on').length;
+    var onCount = $('.bottom_item img.off').length;
     $('.count').text(onCount);
     
     if (onCount === 5) {
-        setTimeout(function() {
-            $('#reward').addClass('on');
-            $('.reward01').addClass('on');
-        }, 2500); 
-    }
-    }
+            setTimeout(function() {
+                location.href = './reward01.html';
+            }, 2500); 
+        }
+}
+
 
 });
 </script>
