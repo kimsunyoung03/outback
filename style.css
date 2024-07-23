@@ -193,7 +193,8 @@ a.close_btn img{width:24px;}
 .retry_pc{display: flex;}    
 .retry_m{display:none;}
 .bttom_banner{display:none;}
-@media (min-width: 575.98px) {
+
+@media (max-width: 760px){
     .bttom_banner{display:block;}
     .retry_pc{display: none;}    
     .retry_m{display: flex;}
