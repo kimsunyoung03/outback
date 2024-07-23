@@ -6,7 +6,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 <script src='./common.js'></script>
-<script src='./fastclick.js'></script>
 <link rel="stylesheet" href="./style.css" />
 <title>아웃백</title>
 </head>
@@ -43,8 +42,8 @@
         <div class="v-img-zoom--wrapper"  >
             <div class="v-img-zoom--item">
                 <div  class="f-panzoom__content">
-                        <img src="./img/Background_m.webp"  usemap="#imgmap2024723202832" loading="lazy">
-                        <img src="./img/item1_check_m.webp" class="pin_s" id="item1_check" loading="lazy">
+                        <img src="./img/Background_m.webp"  usemap="#imgmap2024723202832" loading="lazy" oncontextmenu="return false">
+                        <img src="./img/item1_check_m.webp" class="pin_s" id="item1_check" loading="lazy" >
                         <img src="./img/item2_check_m.webp" class="pin_s" id="item2_check" loading="lazy">
                         <img src="./img/item3_check_m.webp" class="pin_s" id="item3_check" loading="lazy">
                         <img src="./img/item4_check_m.webp" class="pin_s" id="item4_check" loading="lazy">
@@ -179,6 +178,15 @@
             }, 2500); 
         }
     }
+
+    
+    //모바일 롱클릭 방지
+    window.oncontextmenu = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+    };
+    
 </script>
 </body>
 </html>
