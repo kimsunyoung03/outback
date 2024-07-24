@@ -206,31 +206,6 @@
     return false;
     };
 
-    // 페이지가 로드될 때 실행될 함수
-    function checkAndReloadOnce() {
-        // 쿠키 이름 설정
-        const cookieName = 'firstVisit';
-
-        // 쿠키가 없으면 새로고침하고 쿠키 설정
-        if (!getCookie(cookieName)) {
-            // 쿠키 설정: 1일 동안 유효
-            document.cookie = `${cookieName}=true; max-age=${60*60*24};`;
-            window.location.reload(); // 페이지 새로고침
-        }
-    }
-
-    // 쿠키 가져오기 함수
-    function getCookie(name) {
-        const cookies = document.cookie.split(';');
-        for (let cookie of cookies) {
-            const [cookieName, cookieValue] = cookie.split('=');
-            if (cookieName.trim() === name) {
-                return cookieValue;
-            }
-        }
-        return null;
-    }
-
     // 페이지가 로드될 때 한 번 실행
     window.addEventListener('load', checkAndReloadOnce);
 </script>
