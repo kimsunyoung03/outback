@@ -40,7 +40,7 @@ a.close_btn img{width:24px;}
 
 /* 스크롤바 thumb (드래그 바) */
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.0); /* 스크롤바 색상 */
+    background-color: rgba(0, 0, 0, 0.14); /* 스크롤바 색상 */
     border-radius: 10px; /* 둥근 모서리 */
 }
 
