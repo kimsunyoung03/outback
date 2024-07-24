@@ -14,7 +14,7 @@
 <!--리워드-->
 <section id="reward01" class="reward_common">
     <div class="reward_wrap" >
-        <div class="bttom_banner">
+        <div class="bttom_banner" id="bttom_banner">
             <p>
                 <span>쿠폰이미지를 3초간 꾸~욱</span><br/>눌러서 다운로드 받아주세요.
                 <br/>다운로드 불가시 <b>화면캡쳐 후 직원에게 보여주세요.</b>
@@ -45,6 +45,23 @@
         </article>
         
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        // iframe 여부 확인
+        var isInIframe = (window.location !== window.parent.location);
+
+        // 요소 가져오기
+        var MButton = document.getElementById('bttom_banner');
+
+        if (isInIframe) {
+            // iframe 안에 있으면 PC 버튼을 표시하고, 모바일 버튼을 숨김
+            MButton.style.display = 'none';
+        } else {
+            // iframe 밖에 있으면 모바일 버튼을 표시하고, PC 버튼을 숨김
+            MButton.style.display = 'flex';
+        }
+        });
+    </script>
 </section>
 
 </body>
