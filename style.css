@@ -3,7 +3,7 @@
 :root {--vh: 100%;}
 body{  overscroll-behavior-x: none;-webkit-touch-callout:none;}
 html {-ms-touch-action: manipulation;touch-action: manipulation;-webkit-transform: translate3d(0px,0px,0px);-ms-touch-action: none; -webkit-touch-callout:none;-webkit-user-select:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
-
+img {-webkit-touch-callout:none;}
 
 #outback_game_mobile{width:100%;height: var(--vh);display:flex;justify-content:center;align-items: center;position:relative;background: url(./img/wrap_background.jpg);}
 .frame_wrap{margin:0 auto;max-width:480px;height: var(--vh);overflow:hidden;position:absolute;width:100%;}
