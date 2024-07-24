@@ -133,40 +133,40 @@
         updateCount();
     });
 
-    // $("#area1").on("touchend", function (e) {
-    //     $('#item1_poup').addClass('on');
-    //     $('#item1_check').addClass('on');
-    //     $('#item1').addClass('off');
-    //     updateCount();
-    // })
+    $("#area1").on("touchend", function (e) {
+        $('#item1_poup').addClass('on');
+        $('#item1_check').addClass('on');
+        $('#item1').addClass('off');
+        updateCount();
+    })
 
-    // $("#area2").on("touchend", function (e) {
-    //     $('#item2_poup').addClass('on');
-    //     $('#item2_check').addClass('on');
-    //     $('#item2').addClass('off');
-    //     updateCount();
-    // })
+    $("#area2").on("touchend", function (e) {
+        $('#item2_poup').addClass('on');
+        $('#item2_check').addClass('on');
+        $('#item2').addClass('off');
+        updateCount();
+    })
 
-    // $("#area3").on("touchend", function (e) {
-    //     $('#item3_poup').addClass('on');
-    //     $('#item3_check').addClass('on');
-    //     $('#item3').addClass('off');
-    //     updateCount();
-    // })
+    $("#area3").on("touchend", function (e) {
+        $('#item3_poup').addClass('on');
+        $('#item3_check').addClass('on');
+        $('#item3').addClass('off');
+        updateCount();
+    })
 
-    // $("#area4").on("touchend", function (e) {
-    //     $('#item4_poup').addClass('on');
-    //     $('#item4_check').addClass('on');
-    //     $('#item4').addClass('off');
-    //     updateCount();
-    // })
+    $("#area4").on("touchend", function (e) {
+        $('#item4_poup').addClass('on');
+        $('#item4_check').addClass('on');
+        $('#item4').addClass('off');
+        updateCount();
+    })
 
-    // $("#area5").on("touchend", function (e) {
-    //     $('#item5_poup').addClass('on');
-    //     $('#item5_check').addClass('on');
-    //     $('#item5').addClass('off');
-    //     updateCount();
-    // })
+    $("#area5").on("touchend", function (e) {
+        $('#item5_poup').addClass('on');
+        $('#item5_check').addClass('on');
+        $('#item5').addClass('off');
+        updateCount();
+    })
 
     function updateCount() {
     var onCount = $('.bottom_item img.off').length;
@@ -187,64 +187,7 @@
     return false;
     };
     
-    // 롱클릭 이벤트 방지
-    var touchStartTime;
-    var longPressThreshold = 10000; // 10초로 설정하여 터무니없이 길게 만듭니다
-
-    function handleTouchStart(e) {
-        touchStartTime = new Date().getTime();
-    }
-
-    function handleTouchEnd(e, area, itemPopup, itemCheck, item) {
-        var touchEndTime = new Date().getTime();
-        var touchDuration = touchEndTime - touchStartTime;
-
-        if (touchDuration < longPressThreshold) {
-            $(itemPopup).addClass('on');
-            $(itemCheck).addClass('on');
-            $(item).addClass('off');
-            updateCount();
-        }
-    }
-
-    $("#area1").on("touchstart", handleTouchStart).on("touchend", function(e) {
-        handleTouchEnd(e, '#area1', '#item1_poup', '#item1_check', '#item1');
-    });
-
-    $("#area2").on("touchstart", handleTouchStart).on("touchend", function(e) {
-        handleTouchEnd(e, '#area2', '#item2_poup', '#item2_check', '#item2');
-    });
-
-    $("#area3").on("touchstart", handleTouchStart).on("touchend", function(e) {
-        handleTouchEnd(e, '#area3', '#item3_poup', '#item3_check', '#item3');
-    });
-
-    $("#area4").on("touchstart", handleTouchStart).on("touchend", function(e) {
-        handleTouchEnd(e, '#area4', '#item4_poup', '#item4_check', '#item4');
-    });
-
-    $("#area5").on("touchstart", handleTouchStart).on("touchend", function(e) {
-        handleTouchEnd(e, '#area5', '#item5_poup', '#item5_check', '#item5');
-    });
-
-    function updateCount() {
-        var onCount = $('.bottom_item img.off').length;
-        $('.count').text(onCount);
-
-        if (onCount === 5) {
-            setTimeout(function() {
-                location.href = './reward01.html';
-            }, 2500);
-        }
-    }
-
-    // 롱클릭 시 컨텍스트 메뉴 방지
-    window.oncontextmenu = function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
-    };
-
+    
 </script>
 
 <script type="text/javascript">document.addEventListener("contextmenu",function(e){"IMG"===e.target.nodeName&&e.preventDefault()},!1);</script>
