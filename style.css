@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 *{margin:0;padding:0;font-family:"Pretendard Variable", sans-serif;text-decoration:none;list-style:none; -ms-content-zooming: none;-ms-touch-action: pan-x pan-y;touch-action: pan-y;}
 :root {--vh: 100%;}
-body{  overscroll-behavior-x: none;-webkit-touch-callout:none;height:100dvh}
+body{  overscroll-behavior-x: none;-webkit-touch-callout:none;height:100dvh;overscroll-behavior-y:contain;}
 html {-ms-touch-action: manipulation;height: -webkit-fill-available;touch-action: manipulation;-webkit-transform: translate3d(0px,0px,0px);-ms-touch-action: none; -webkit-touch-callout:none;-webkit-user-select:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 img {-webkit-touch-callout:none;}
 
@@ -190,14 +190,19 @@ a.close_btn img{width:24px;}
 .bttom_banner b{font-weight:700;}
 
 
+/* 전체 스크롤바 */
+::-webkit-scrollbar {
+    width: 10px; /* 스크롤바 너비 */
+    background-color: transparent; /* 배경색 투명 */
+}
 
+/* 스크롤바 thumb (드래그 바) */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3); /* 스크롤바 색상 */
+    border-radius: 10px; /* 둥근 모서리 */
+}
 
-.retry_pc{display: flex;}
-.retry_m{display:none;}
-.bttom_banner{display:none;}
-
-@media (max-width: 760px){
-    .bttom_banner{display:block;}
-    .retry_pc{display: none;}
-    .retry_m{display: flex;}
+/* 스크롤바 track (바탕) */
+::-webkit-scrollbar-track {
+    background-color: transparent; /* 배경색 투명 */
 }
