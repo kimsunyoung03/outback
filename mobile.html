@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0; minimum-scale=1.0; user-scalable=no" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 <script src='./common.js'></script>
@@ -16,9 +17,9 @@
         <div class="count_area">
             <p><span class="count">0</span>&nbsp;/&nbsp;5</p>
         </div>
-        <div class="repeat">
+        <!-- <div class="repeat">
             <img src="./img/repeat.png" alt="임시아이콘_재정렬">
-        </div>
+        </div> -->
         <div class="bottom_item">
             <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프">
             <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">
@@ -101,10 +102,10 @@
     var is_visible_cotrol = true;
     var pz_elm = panzoom(element, {
         maxZoom: 1,
-        minZoom: 0.45,
+        minZoom: 0.55,
         initialX: 0,
         initialY: 0,
-        initialZoom: .45,
+        initialZoom: .55,
         smoothScroll: false,
         zoomDoubleClickSpeed: 1,
         onTouch: function (e) {
@@ -135,7 +136,7 @@
     setInterval(handlePanzoomResetPosition, 300);
 
     $('.repeat').on("click", function () {
-        pz_elm.smoothZoom(0, 0, 0.15);
+        pz_elm.smoothZoom(0, 0, 0.55);
         setTimeout(function () {
             pz_elm.smoothMoveTo(-54.2044, -169.931);
         }, 500);
