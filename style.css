@@ -18,7 +18,7 @@ img {-webkit-touch-callout:none;}
 .frame_wrap .bottom_item img{max-width:20%;max-height:60px;}
 .frame_wrap .bottom_item img.off{filter: grayscale(1);}
 
-.game_wrap { position: relative; width:90%; max-width:480px;top:-50px;overflow: hidden;background:url('./img/Background_blur.png');}
+.game_wrap { position: relative; width:90%; max-width:480px;top:-50px;overflow: hidden;background:url('./img/Background_blur.webp');}
 #outback_game_mobile .game_wrap {height:80%;max-height:750px;}
 
 .item_modal{width:100%;height:100%;position:absolute;top:0;left:0;pointer-events: none;display:block;visibility: inherit;}
