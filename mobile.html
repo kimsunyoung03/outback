@@ -104,7 +104,7 @@
         initialX: 0,
         initialY: 0,
         initialZoom: .45,
-        smoothScroll: true,
+        smoothScroll: false,
         zoomDoubleClickSpeed: 1,
         onTouch: function (e) {
             e.preventDefault();
@@ -119,6 +119,19 @@
             return false;
         }
     });
+
+    function handlePanzoomResetPosition() {
+        var pzElmTransform = pz_elm.getTransform()
+        var myPzElm = document.querySelector('#myPanzoom');
+        var myPzElmBoundingClientRect = myPzElm.getBoundingClientRect();
+        var itemElm = document.querySelector('.v-img-zoom--item');
+        var itemElmBoundingClientRect = itemElm.getBoundingClientRect();
+        var x = Math.max(myPzElmBoundingClientRect.width - itemElmBoundingClientRect.width, Math.min(0, pzElmTransform.x));
+        var y = Math.max(myPzElmBoundingClientRect.height - itemElmBoundingClientRect.height + 5, Math.min(0, pzElmTransform.y));
+        pz_elm.smoothMoveTo(x, y);
+    }
+
+    setInterval(handlePanzoomResetPosition, 500);
 
     $('.repeat').on("click", function () {
         pz_elm.smoothZoom(0, 0, 0.15);
