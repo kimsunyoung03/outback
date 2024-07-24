@@ -6,7 +6,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 <script src='./common.js'></script>
-<script src='./fastclick.js'></script>
 <link rel="stylesheet" href="./style.css" />
 <title>아웃백</title>
 </head>
@@ -22,7 +21,7 @@
         </div>
         <div class="bottom_item">
             <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프">
-            <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">    
+            <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">
             <img id="item4" src="./img/item4.png" alt="패션후르츠 슈림프 샐러드">
             <img id="item1" src="./img/item1.png" alt="수박 그라나따">
             <img id="item3" src="./img/item3.png" alt="망고 그라나따">
@@ -33,18 +32,20 @@
                 <button type="button" class="start_button">START</button>
             </div>
         </article>
-        <article id="cotrol" class="on">
+        <article id="cotrol" class="on" style="pointer-events:none;">
+            <div class="cotrol_wrap">
             <img src="./img/cotrol.png">
             <p class="control_txt01">숨은 그림 찾기 진행 시 이미지가 보이지 않을 때,<br/>상단의 버튼을 선택하시면 화면에 다시 나타나요!</p>
-        </article> 
+            </div>
+        </article>
     </div>
 
-    <div class="game_wrap v-img-zoom" id="myPanzoom"> 
+    <div class="game_wrap v-img-zoom" id="myPanzoom">
         <div class="v-img-zoom--wrapper"  >
             <div class="v-img-zoom--item">
                 <div  class="f-panzoom__content">
-                        <img src="./img/Background_m.webp"  usemap="#imgmap2024723202832" loading="lazy">
-                        <img src="./img/item1_check_m.webp" class="pin_s" id="item1_check" loading="lazy">
+                        <img src="./img/Background_m.webp"  usemap="#imgmap2024723202832" loading="lazy" oncontextmenu="return false">
+                        <img src="./img/item1_check_m.webp" class="pin_s" id="item1_check" loading="lazy" >
                         <img src="./img/item2_check_m.webp" class="pin_s" id="item2_check" loading="lazy">
                         <img src="./img/item3_check_m.webp" class="pin_s" id="item3_check" loading="lazy">
                         <img src="./img/item4_check_m.webp" class="pin_s" id="item4_check" loading="lazy">
@@ -58,7 +59,7 @@
                     <area id="area4" shape="rect" alt="패션후르츠 슈림프 샐러드" title="" coords="628,2732,860,2964"  />
                     <area id="area5" shape="rect" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce" title="" coords="300,5044,596,5340"/>
                 </map> -->
-                <!-- 720px 
+                <!-- 720px
                     <map id="imgmap2024723181951" name="imgmap2024723181951">
                     <area id="area1" shape="rect" alt="수박 그라나따"  coords="71,235,130,309">
                     <area id="area2" shape="rect" alt="퀸즈랜드 립아이 & 스콜피온 슈림프" coords="382,82,446,149">
@@ -95,73 +96,81 @@
 
 
 <script>
-var element = document.querySelector('.v-img-zoom--item');
-var pz_elm = panzoom(element, {
-    maxZoom:1,
-    minZoom:0.45,
-    initialX:0,
-    initialY:-0,
-    initialZoom:.45,
-    smoothScroll: false,
-    zoomDoubleClickSpeed: 1, 
-    onDoubleClick: function(e) {
-    return false; 
-  }
-});
+    var element = document.querySelector('.v-img-zoom--item');
+    var is_visible_cotrol = true;
+    var pz_elm = panzoom(element, {
+        maxZoom: 1,
+        minZoom: 0.45,
+        initialX: 0,
+        initialY: 0,
+        initialZoom: .45,
+        smoothScroll: true,
+        zoomDoubleClickSpeed: 1,
+        onTouch: function (e) {
+            e.preventDefault();
+            if (is_visible_cotrol) {
+                $('#cotrol').removeClass('on');
+                is_visible_cotrol = false;
+            }
+            return false;
+        },
+        onDoubleClick: function () {
+            return false;
+        }
+    });
 
-$('.repeat').on("click", function() {
-    pz_elm.smoothZoom(0,0, 0.45);
-    setTimeout(function() {
-        pz_elm.smoothMoveTo(-57.732, -310.995);
-    }, 500);
-})
-
-$(document).ready(function(){
-
-
-    $('#cotrol').on("click touchstart", function (e) {
-        $(this).removeClass('on');
+    $('.repeat').on("click", function () {
+        pz_elm.smoothZoom(0, 0, 0.15);
+        setTimeout(function () {
+            pz_elm.smoothMoveTo(-54.2044, -169.931);
+        }, 500);
     })
 
-    $('.start_button').click(function(){
+    $('.start_button').click(function () {
         $('#start_modal').removeClass('on')
+        $('.cotrol_wrap').css("opacity","1");
+        $('.repeat').css("opacity","1");
     })
-    
-    $('.item_modal img').click(function(){
+
+    $('.item_modal img').click(function () {
         $(this).removeClass('on');
         updateCount();
     });
+
     $("#area1").on("touchstart", function (e) {
         $('#item1_poup').addClass('on');
         $('#item1_check').addClass('on');
         $('#item1').addClass('off');
         updateCount();
     })
+
     $("#area2").on("touchstart", function (e) {
         $('#item2_poup').addClass('on');
         $('#item2_check').addClass('on');
         $('#item2').addClass('off');
         updateCount();
     })
+
     $("#area3").on("touchstart", function (e) {
         $('#item3_poup').addClass('on');
         $('#item3_check').addClass('on');
         $('#item3').addClass('off');
         updateCount();
     })
+
     $("#area4").on("touchstart", function (e) {
         $('#item4_poup').addClass('on');
         $('#item4_check').addClass('on');
         $('#item4').addClass('off');
         updateCount();
     })
+
     $("#area5").on("touchstart", function (e) {
         $('#item5_poup').addClass('on');
         $('#item5_check').addClass('on');
         $('#item5').addClass('off');
         updateCount();
     })
-
 
     function updateCount() {
     var onCount = $('.bottom_item img.off').length;
@@ -172,10 +181,20 @@ $(document).ready(function(){
                 location.href = './reward01.html';
             }, 2500); 
         }
-}
+    }
 
-
-});
+    
+    //모바일 롱클릭 방지
+    window.oncontextmenu = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+    };
+    
+    
 </script>
+
+<script type="text/javascript">document.addEventListener("contextmenu",function(e){"IMG"===e.target.nodeName&&e.preventDefault()},!1);</script>
+
 </body>
 </html>
