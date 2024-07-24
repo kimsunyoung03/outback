@@ -45,22 +45,22 @@
         </article>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-        // iframe 여부 확인
-        var isInIframe = (window.location !== window.parent.location);
-
-        // 요소 가져오기
-        var MButton = document.getElementById('bttom_banner');
-
-        if (isInIframe) {
-            // iframe 안에 있으면 PC 버튼을 표시하고, 모바일 버튼을 숨김
-            MButton.style.display = 'none';
-        } else {
-            // iframe 밖에 있으면 모바일 버튼을 표시하고, PC 버튼을 숨김
-            MButton.style.display = 'block';
-        }
-        });
-        </script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // iframe 여부 확인
+      var isInIframe = (window.location !== window.parent.location);
+  
+      // 요소 가져오기
+      var Mdiv = document.getElementById('bttom_banner');
+  
+      if (isInIframe) {
+        // iframe 안에 있으면 PC 버튼을 표시하고, 모바일 버튼을 숨김
+        Mdiv.style.display = 'none';
+      } else {
+        // iframe 밖에 있으면 모바일 버튼을 표시하고, PC 버튼을 숨김
+        Mdiv.style.display = 'block';
+      }
+    });
+    </script>
 </section>
 
 </body>

@@ -30,59 +30,52 @@
     </div>
 </section>
 <script>
-    $(document).ready(function() {
-        $('.download').on('click', function(e) {
-            e.preventDefault(); // 기본 동작을 막음
+  function isMobileBrowser() {
+  // 일반적으로 모바일 브라우저의 사용자 에이전트 문자열을 확인하여 판별
+  const userAgent = navigator.userAgent.toLowerCase();
+  return /iphone|ipad|ipod|android|blackberry|opera mini|iemobile|mobile/.test(userAgent);
+  }
 
-            // 쿠폰 이미지 다운로드
-            const link = document.createElement('a');
-            link.href = './img/coupon02.jpg';
-            link.download = 'coupon02.jpg';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+  $(document).ready(function() {
+      $('.download').on('click', function(e) {
+      if (!isMobileBrowser()) {
+          e.preventDefault(); // 기본 동작을 막음
 
-            setTimeout(function() {
-                window.location.href = 'reward02_detail.html';
-            }, 500);
-        });
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-      // iframe 여부 확인
-      var isInIframe = (window.location !== window.parent.location);
-  
-      // 요소 가져오기
-      var retryMButton = document.getElementById('retry_m');
-      var retryPCButton = document.getElementById('retry_pc');
-  
-      if (isInIframe) {
-        // iframe 안에 있으면 PC 버튼을 표시하고, 모바일 버튼을 숨김
-        retryMButton.style.display = 'none';
-        retryPCButton.style.display = 'flex';
-      } else {
-        // iframe 밖에 있으면 모바일 버튼을 표시하고, PC 버튼을 숨김
-        retryMButton.style.display = 'inline-block';
-        retryPCButton.style.display = 'flex';
+          // 쿠폰 이미지 다운로드
+          const link = document.createElement('a');
+          link.href = './img/coupon01.jpg';
+          link.download = 'coupon01.jpg';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
       }
-    });
-    document.addEventListener("DOMContentLoaded", function() {
-      // iframe 여부 확인
-      var isInIframe = (window.location !== window.parent.location);
-  
-      // 요소 가져오기
-      var retryMButton = document.getElementById('retry_m');
-      var retryPCButton = document.getElementById('retry_pc');
-  
-      if (isInIframe) {
-        // iframe 안에 있으면 PC 버튼을 표시하고, 모바일 버튼을 숨김
-        retryMButton.style.display = 'none';
-        retryPCButton.style.display = 'flex';
-      } else {
-        // iframe 밖에 있으면 모바일 버튼을 표시하고, PC 버튼을 숨김
-        retryMButton.style.display = 'flex';
-        retryPCButton.style.display = 'none';
-      }
-    });
-  </script>
+      // 페이지 이동
+      setTimeout(function() {
+          window.location.href = 'reward01_detail.html';
+      }, 500);
+      });
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // iframe 여부 확인
+    var isInIframe = (window.location !== window.parent.location);
+
+    // 요소 가져오기
+    var retryMButton = document.getElementById('retry_m');
+    var retryPCButton = document.getElementById('retry_pc');
+
+    if (isInIframe) {
+      // iframe 안에 있으면 PC 버튼을 표시하고, 모바일 버튼을 숨김
+      retryMButton.style.display = 'none';
+      retryPCButton.style.display = 'flex';
+    } else {
+      // iframe 밖에 있으면 모바일 버튼을 표시하고, PC 버튼을 숨김
+      retryMButton.style.display = 'flex';
+      retryPCButton.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>

@@ -22,7 +22,7 @@
                 <p class="comment">7만원 이상 주문 시 사용 가능</p>
             </div>
             <div class="btn_area">
-            <a class="btn download"><img src="./img/btn_download.png"></a>
+            <a class="btn download" ><img src="./img/btn_download.png"></a>
             <a class="btn " id="retry_m" href="./mobile.html"><img src="./img/btn_retry.png"></a>
             <a class="btn" id="retry_pc" onClick="top.location='javascript:location.reload()'"><img src="./img/btn_retry.png"></a>
             </div>
@@ -30,8 +30,15 @@
     </div>
 </section>
 <script>
+    function isMobileBrowser() {
+    // 일반적으로 모바일 브라우저의 사용자 에이전트 문자열을 확인하여 판별
+    const userAgent = navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod|android|blackberry|opera mini|iemobile|mobile/.test(userAgent);
+    }
+
     $(document).ready(function() {
         $('.download').on('click', function(e) {
+        if (!isMobileBrowser()) {
             e.preventDefault(); // 기본 동작을 막음
 
             // 쿠폰 이미지 다운로드
@@ -41,12 +48,15 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-
-            setTimeout(function() {
-                window.location.href = 'reward01_detail.html';
-            }, 500);
+        }
+        // 페이지 이동
+        setTimeout(function() {
+            window.location.href = 'reward01_detail.html';
+        }, 500);
         });
     });
+
+
     document.addEventListener("DOMContentLoaded", function() {
       // iframe 여부 확인
       var isInIframe = (window.location !== window.parent.location);
