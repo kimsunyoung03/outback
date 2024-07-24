@@ -23,8 +23,8 @@
             </div>
             <div class="btn_area">
             <a class="btn download" href="./reward04_detail.html"><img src="./img/btn_download.png"></a>
-            <a class="btn retry_m"  href="./mobile.html"><img src="./img/btn_retry.png"></a>
-            <a class="btn retry_pc" onClick="top.location='javascript:location.reload()'"><img src="./img/btn_retry.png"></a>
+            <a class="btn " id="retry_m" href="./mobile.html"><img src="./img/btn_retry.png"></a>
+            <a class="btn" id="retry_pc" onClick="top.location='javascript:location.reload()'"><img src="./img/btn_retry.png"></a>
             </div>
         </article>
     </div>
@@ -47,6 +47,24 @@
             }, 500);
         });
     });
-</script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // iframe 여부 확인
+      var isInIframe = (window.location !== window.parent.location);
+  
+      // 요소 가져오기
+      var retryMButton = document.getElementById('retry_m');
+      var retryPCButton = document.getElementById('retry_pc');
+  
+      if (isInIframe) {
+        // iframe 안에 있으면 PC 버튼을 표시하고, 모바일 버튼을 숨김
+        retryMButton.style.display = 'none';
+        retryPCButton.style.display = 'flex';
+      } else {
+        // iframe 밖에 있으면 모바일 버튼을 표시하고, PC 버튼을 숨김
+        retryMButton.style.display = 'flex';
+        retryPCButton.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
