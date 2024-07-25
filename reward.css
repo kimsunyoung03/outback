@@ -35,16 +35,16 @@ a.close_btn img{width:24px;}
 /* 전체 스크롤바 */
 ::-webkit-scrollbar {
     width: 10px; /* 스크롤바 너비 */
-    background-color: transparent; /* 배경색 투명 */
+    background-color:#ffeddf
 }
 
 /* 스크롤바 thumb (드래그 바) */
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.14); /* 스크롤바 색상 */
+    background-color:#eccbb1
     border-radius: 10px; /* 둥근 모서리 */
 }
 
 /* 스크롤바 track (바탕) */
 ::-webkit-scrollbar-track {
-    background-color: transparent; /* 배경색 투명 */
+    background-color: #ffeddf
 }
