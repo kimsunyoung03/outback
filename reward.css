@@ -4,9 +4,11 @@
 html {-ms-touch-action: manipulation;height: -webkit-fill-available;touch-action: manipulation;-webkit-transform: translate3d(0px,0px,0px);-ms-touch-action: none; -webkit-touch-callout:none;-webkit-user-select:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 
 .reward_common{background: #ffece0;}
-.reward_wrap{width:100%;max-width:420px;margin:0 auto;height:100%;min-height:100vh;display:flex;flex-direction: column;justify-content:space-between;overflow:hidden;background:url('./img/reward_bg.png')center no-repeat;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;}
-.reward_area{position:relative;height:100%;padding:20px 20px 0;display:flex;justify-content:flex-start;align-items: center;flex-direction: column;}
-a.close_btn{display:flex;justify-content:center;align-items:center;width:32px;height:32px;padding:20px;position:absolute;top:10px;right:10px}
+.reward_wrap{position:relative;;width:100%;max-width:420px;margin:0 auto;height:100%;min-height:100vh;display:flex;gap:0;flex-direction: column;overflow:hidden;background:url('./img/reward_bg.png')center no-repeat;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;}
+/* .reward_area{position:relative;height:100%;padding:20px 20px 0;display:flex;justify-content:flex-start;align-items: center;flex-direction: column;} */
+.img_area{position:relative}
+.img_area img{width: 100%;}
+a.close_btn{display:flex;justify-content:center;align-items:center;width:32px;height:32px;padding:20px;position:absolute;top:10px;right:10px;z-index:999;}
 a.close_btn img{width:24px;}
 
 .btn{width:80%;margin:0 auto;display:flex;justify-content: center;align-items:center;}
@@ -27,7 +29,7 @@ a.close_btn img{width:24px;}
 .warnning_wrap ul{display:flex;justify-content:flex-start;flex-direction:column;gap:4px}
 .warnning_wrap ul li {text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;}
 .warnning_wrap ul li::before{display:inline-block;width:3px;height:3px;background:#000;border-radius:50%;content:'';margin-right:8px;}
-.bttom_banner{background:url(./img/btn_bg.jpg);padding:20px;color: #fff;overflow: hidden;font-size:15px;text-align:center;}
+.bttom_banner{background:url(./img/btn_bg.jpg);padding:20px;color: #fff;overflow: hidden;font-size:15px;text-align:center;z-index: 99;}
 .bttom_banner span{font-weight:700;color:#ff0;}
 .bttom_banner b{font-weight:700;}
 
