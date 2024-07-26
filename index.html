@@ -7,13 +7,15 @@
 <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 <script src='./common.js'></script>
 <link rel="stylesheet" href="./style.css" />
-<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <title>아웃백</title>
 
 </head>
 <body>
-<article id="outback_game_pc">
-
+<div class="loading-screen">
+    <div class="loader"></div>
+    <p>Loading...</p>
+</div>
+<article id="outback_game_pc" class="main_contents">
     <div class="frame_wrap">
         <img class="logo" src="./img/logo.png">
         <!-- <img class="frame" src="./img/frame_pc.png"> -->
@@ -24,21 +26,27 @@
             <img src="./img/repeat.png" alt="임시아이콘_재정렬">
         </div> -->
         <div class="bottom_item">
+            <picture>
             <img id="item2" src="./img/item2.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프">
             <img id="item5" src="./img/item5.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce">    
             <img id="item4" src="./img/item4.png" alt="패션후르츠 슈림프 샐러드">
             <img id="item1" src="./img/item1.png" alt="수박 그라나따">
             <img id="item3" src="./img/item3.png" alt="망고 그라나따">
+            </picture>
         </div>
         <article id="start_modal" class="on">
             <div class="modal_wrap">
-                <img src="./img/start_pc.png" alt="숨은맵시를 찾아서">
+                <picture>
+                <img src="./img/start_pc.webp" alt="숨은맵시를 찾아서">
+                </picture>
             </div>
         </article>
         <article id="cotrol" class="on">
             <div class="cotrol_wrap">
+                <picture>
                 <img src="./img/cotrol_pc.png">
                 <!-- <p class="control_txt01">숨은 그림 찾기 진행 시 이미지가 보이지 않을 때,<br/>상단의 버튼을 선택하시면 화면에 다시 나타나요!</p> -->
+                </picture>
             </div>
         </article> 
 
@@ -79,18 +87,21 @@
             </div>
         </div>
         <div class="item_modal">
+            <picture>
             <img id="item1_poup" src="./img/item1_popup.png" alt="수박 그라나따(팝업)">
             <img id="item2_poup" src="./img/item2_popup.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프(팝업)">
             <img id="item3_poup" src="./img/item3_popup.png" alt="망고 그라나따(팝업)">
             <img id="item4_poup" src="./img/item4_popup.png" alt="패션후르츠 슈림프 샐러드(팝업)">
             <img id="item5_poup" src="./img/item5_popup.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce(팝업)">
+            </picture>
         </div>
     </div>
 </article>
 
 
 <script>
-    
+
+
     var element = document.querySelector('.v-img-zoom--item');
     var is_visible_cotrol = true;
     var pz_elm = panzoom(element, {
@@ -128,71 +139,77 @@
 
     setInterval(handlePanzoomResetPosition, 230);
 
-$('.repeat').on("click", function() {
-    pz_elm.smoothZoom(0,0, 0.527106);
-    setTimeout(function() {
-        pz_elm.smoothMoveTo(-48.875, -1444.54);
-    }, 500);
-})
-
-$('#cotrol').on("click", function (e) {
-    $(this).removeClass('on');
-})
-
-$('#start_modal').click(function(){
-    $('#start_modal').removeClass('on');
-    $('.cotrol_wrap').css("opacity","1");
-    $('.repeat').css("opacity","1");
-})
-
-$('.item_modal img').click(function(){
-    $(this).removeClass('on');
-    updateCount();
-});
-$("#area1").on("click", function (e) {
-    $('#item1_poup').addClass('on');
-    $('#item1_check').addClass('on');
-    $('#item1').addClass('off');
-    updateCount();
-})
-$("#area2").on("click", function (e) {
-    $('#item2_poup').addClass('on');
-    $('#item2_check').addClass('on');
-    $('#item2').addClass('off');
-    updateCount();
-})
-$("#area3").on("click", function (e) {
-    $('#item3_poup').addClass('on');
-    $('#item3_check').addClass('on');
-    $('#item3').addClass('off');
-    updateCount();
-})
-$("#area4").on("click", function (e) {
-    $('#item4_poup').addClass('on');
-    $('#item4_check').addClass('on');
-    $('#item4').addClass('off');
-    updateCount();
-})
-$("#area5").on("click", function (e) {
-    $('#item5_poup').addClass('on');
-    $('#item5_check').addClass('on');
-    $('#item5').addClass('off');
-    updateCount();
-})
-
-function updateCount() {
-    var onCount = $('.item_modal img.on').length;
-    $('.count').text(onCount);
-    
-    if (onCount === 5) {
+    $('.repeat').on("click", function() {
+        pz_elm.smoothZoom(0,0, 0.527106);
         setTimeout(function() {
-            $('#reward').addClass('on');
-            $('.reward01').addClass('on');
-        }, 3500); 
+            pz_elm.smoothMoveTo(-48.875, -1444.54);
+        }, 500);
+    })
+
+    $('#cotrol').on("click", function (e) {
+        $(this).removeClass('on');
+    })
+
+    $('#start_modal').click(function(){
+        $('#start_modal').removeClass('on');
+        $('.cotrol_wrap').css("opacity","1");
+        $('.repeat').css("opacity","1");
+    })
+
+    $('.item_modal img').click(function(){
+        $(this).removeClass('on');
+        updateCount();
+    });
+    $("#area1").on("click", function (e) {
+        $('#item1_poup').addClass('on');
+        $('#item1_check').addClass('on');
+        $('#item1').addClass('off');
+        updateCount();
+    })
+    $("#area2").on("click", function (e) {
+        $('#item2_poup').addClass('on');
+        $('#item2_check').addClass('on');
+        $('#item2').addClass('off');
+        updateCount();
+    })
+    $("#area3").on("click", function (e) {
+        $('#item3_poup').addClass('on');
+        $('#item3_check').addClass('on');
+        $('#item3').addClass('off');
+        updateCount();
+    })
+    $("#area4").on("click", function (e) {
+        $('#item4_poup').addClass('on');
+        $('#item4_check').addClass('on');
+        $('#item4').addClass('off');
+        updateCount();
+    })
+    $("#area5").on("click", function (e) {
+        $('#item5_poup').addClass('on');
+        $('#item5_check').addClass('on');
+        $('#item5').addClass('off');
+        updateCount();
+    })
+
+    function updateCount() {
+        var onCount = $('.item_modal img.on').length;
+        $('.count').text(onCount);
+        
+        if (onCount === 5) {
+            setTimeout(function() {
+                $('#reward').addClass('on');
+                $('.reward01').addClass('on');
+            }, 3500); 
+        }
     }
-}
 
-
+    //로딩바
+    window.onload = function(){
+        // 로딩 바 타이머 설정
+        setTimeout(function() {
+            $('.loading-screen').css('display', 'none');
+        }, 900); 
+    };
 </script>
 <style>
     .retry_m{display: none !important;}

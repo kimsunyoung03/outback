@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,maximum-scale=1.0; minimum-scale=1.0; user-scalable=no" />
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 <script src='./common.js'></script>
@@ -11,7 +10,11 @@
 <title>아웃백</title>
 </head>
 <body style="overscroll-behavior-y:contain;">
-<article id="outback_game_mobile">
+<div class="loading-screen">
+    <div class="loader"></div>
+    <p>Loading...</p>
+</div>
+<article id="outback_game_mobile" class="main_contents">
     <div class="frame_wrap">
         <img class="logo" src="./img/logo.png">
         <div class="count_area">
@@ -45,12 +48,14 @@
         <div class="v-img-zoom--wrapper"  >
             <div class="v-img-zoom--item">
                 <div  class="f-panzoom__content">
+                        <picture>
                         <img src="./img/Background_m.webp"  usemap="#imgmap2024723202832" loading="lazy" oncontextmenu="return false">
                         <img src="./img/item1_check_m.webp" class="pin_s" id="item1_check" loading="lazy" >
                         <img src="./img/item2_check_m.webp" class="pin_s" id="item2_check" loading="lazy">
                         <img src="./img/item3_check_m.webp" class="pin_s" id="item3_check" loading="lazy">
                         <img src="./img/item4_check_m.webp" class="pin_s" id="item4_check" loading="lazy">
                         <img src="./img/item5_check_m.webp" class="pin_s" id="item5_check" loading="lazy">
+                        </picture>
                 </div>
                 <!-- 원본사이즈
                     <map id="imgmap202471885638" name="imgmap202471885638">
@@ -86,11 +91,13 @@
             </div>
         </div>
         <div class="item_modal">
+            <picture>
             <img id="item1_poup" src="./img/item1_popup.png" alt="수박 그라나따(팝업)">
             <img id="item2_poup" src="./img/item2_popup.png" alt="퀸즈랜드 립아이 & 스콜피온 슈림프(팝업)">
             <img id="item3_poup" src="./img/item3_popup.png" alt="망고 그라나따(팝업)">
             <img id="item4_poup" src="./img/item4_popup.png" alt="패션후르츠 슈림프 샐러드(팝업)">
             <img id="item5_poup" src="./img/item5_popup.png" alt="스콜피온 베이비 백 립 with TABASCO Scorpion Sauce(팝업)">
+            </picture>
         </div>
     </div>
 </article>
@@ -102,10 +109,10 @@
     var is_visible_cotrol = true;
     var pz_elm = panzoom(element, {
         maxZoom: 1,
-        minZoom: 0.55,
-        initialX: 0,
-        initialY: 0,
-        initialZoom: .55,
+        minZoom: 0.2,
+        initialX: -114.131,
+        initialY: -300.879,
+        initialZoom: .2,
         smoothScroll: false,
         zoomDoubleClickSpeed: 1,
         onTouch: function (e) {
@@ -199,7 +206,6 @@
         }
     }
 
-
     //모바일 롱클릭 방지
     window.oncontextmenu = function(event) {
     event.preventDefault();
@@ -207,8 +213,13 @@
     return false;
     };
 
-    // 페이지가 로드될 때 한 번 실행
-    window.addEventListener('load', checkAndReloadOnce);
+    //로딩바
+    window.onload = function(){
+        // 로딩 바 타이머 설정
+        setTimeout(function() {
+            $('.loading-screen').css('display', 'none');
+        }, 900); 
+    };
 </script>
 
 <script type="text/javascript">document.addEventListener("contextmenu",function(e){"IMG"===e.target.nodeName&&e.preventDefault()},!1);</script>

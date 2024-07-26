@@ -5,6 +5,20 @@ body{  overscroll-behavior-x: none;-webkit-touch-callout:none;height:100dvh;over
 html {-ms-touch-action: manipulation;height: -webkit-fill-available;touch-action: manipulation;-webkit-transform: translate3d(0px,0px,0px);-ms-touch-action: none; -webkit-touch-callout:none;-webkit-user-select:none;-webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
 img {-webkit-touch-callout:none;}
 
+.loading-screen {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #fff;display: flex;flex-direction: column;justify-content: center;align-items: center;color:#222;font-size: 24px;z-index: 9999999;}
+.loader {border: 8px solid #f3f3f3; /* Light grey */border-top: 8px solid #a11b1b; /* Blue */border-radius: 50%; width: 50px;height: 50px;animation: spin 1s linear infinite; /* Apply animation */}
+.loading-screen p {margin-top: 20px;}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
 #outback_game_mobile{width:100%;height:100%;display:flex;justify-content:center;align-items: center;position:relative;background: url(./img/wrap_background.jpg);position:relative}
 .frame_wrap{margin:0 auto;max-width:480px;height:100%;overflow:hidden;position:absolute;width:100%;}
 .frame_wrap > img{z-index:999;pointer-events: none;position:absolute}
@@ -97,7 +111,7 @@ img {-webkit-touch-callout:none;}
 
 /*pc*/
 
-#outback_game_pc{width:100%;height: 100dvh;min-height: 850px;display:flex;justify-content:center;align-items: center;position:relative;background:url('./img/wrap_background.jpg')}
+#outback_game_pc{width:100%;height: 100dvh;display:flex;justify-content:center;align-items: center;position:relative;background:url('./img/wrap_background.jpg')}
 #outback_game_pc .frame_wrap{max-width:1760px;width:90%;max-height:800px;}
 #outback_game_pc  .frame_wrap .repeat{top:100px;right:30px}
 #outback_game_pc .game_wrap {max-width: 1760px;width:90%;max-height:650px;height: 100dvh; overflow: hidden;margin:0 auto;top:0px}
@@ -157,52 +171,3 @@ iframe{border:none;border-radius:30px;overflow: hidden;scrollbar-width:0;-ms-ove
 }
 
 
-
-
-/*리워드*/
-
-.reward_common{background: #ffece0;}
-.reward_wrap{width:100%;max-width:420px;margin:0 auto;height:100%;min-height:100vh;display:flex;flex-direction: column;justify-content:space-between;overflow:hidden;background:url('./img/reward_bg.png')center no-repeat;box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;}
-.reward_area{position:relative;height:100%;padding:20px 20px 0;display:flex;justify-content:flex-start;align-items: center;flex-direction: column;}
-a.close_btn{display:flex;justify-content:center;align-items:center;width:32px;height:32px;padding:20px;position:absolute;top:10px;right:10px}
-a.close_btn img{width:24px;}
-
-.btn{width:80%;margin:0 auto;display:flex;justify-content: center;align-items:center;}
-.btn.download{margin-bottom:0.6em}
-.btn img{width:100%;}
-
-.coupon{width:80%;min-width:220px;margin-top:15%}
-.txt_area{margin:40px auto 32px;text-align:center;}
-.tit{font-weight:900;color:#a61400;letter-spacing:-.05em;font-size:42px;margin-bottom:8px}
-.tit span{color:#000}
-.date{font-size:14px;font-weight:700;color:#160405;margin-bottom:4px}
-.date span{display:inline-block;padding:0 10px;line-height:22px;height:22px;background:#000000;color:#fff;font-size:12px;font-weight:400;border-radius:30px;margin-right:2px;}
-.comment{font-size:12px;color:#7e6a62}
-
-.warnning_wrap{padding:40px 0 32px;border-top:1px solid #00000042}
-.warnning_wrap .tit{font-size:16px;font-weight:800;color:#000000;line-height:22px;display:flex;justify-content:flex-start;align-items:center;}
-.warnning_wrap .tit img{width:22px;margin-right:8px}
-.warnning_wrap ul{display:flex;justify-content:flex-start;flex-direction:column;gap:4px}
-.warnning_wrap ul li {text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;}
-.warnning_wrap ul li::before{display:inline-block;width:3px;height:3px;background:#000;border-radius:50%;content:'';margin-right:8px;}
-.bttom_banner{background:url(./img/btn_bg.jpg);padding:20px;color: #fff;overflow: hidden;font-size:15px;text-align:center;}
-.bttom_banner span{font-weight:700;color:#ff0;}
-.bttom_banner b{font-weight:700;}
-
-
-/* 전체 스크롤바 */
-::-webkit-scrollbar {
-    width: 10px; /* 스크롤바 너비 */
-    background-color:#ffeddf
-}
-
-/* 스크롤바 thumb (드래그 바) */
-::-webkit-scrollbar-thumb {
-    background-color:#eccbb1
-    border-radius: 10px; /* 둥근 모서리 */
-}
-
-/* 스크롤바 track (바탕) */
-::-webkit-scrollbar-track {
-    background-color: #ffeddf
-}

@@ -14,13 +14,13 @@ a.close_btn img{width:24px;}
 .btn{width:80%;margin:0 auto;display:flex;justify-content: center;align-items:center;}
 .btn.download{margin-bottom:0.6em}
 .btn img{width:100%;}
-
-.coupon{width:80%;min-width:220px;margin-top:15%}
-.txt_area{margin:40px auto 32px;text-align:center;}
-.tit{font-weight:900;color:#a61400;letter-spacing:-.05em;font-size:42px;margin-bottom:8px}
+.reward_area{display: flex;justify-content:center;align-items: center;flex-direction:column;}
+.coupon{width:260px;height:auto;margin-top:15%}
+.txt_area{margin:32px auto;text-align:center;}
+.tit{font-weight:900;color:#a61400;letter-spacing:-.05em;font-size:42px;margin-bottom:26px}
 .tit span{color:#000}
-.date{font-size:14px;font-weight:700;color:#160405;margin-bottom:4px}
-.date span{display:inline-block;padding:0 10px;line-height:22px;height:22px;background:#000000;color:#fff;font-size:12px;font-weight:400;border-radius:30px;margin-right:2px;}
+.date{font-size:14px;font-weight:700;color:#160405;margin-bottom:4px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;}
+.date span{display:inline-block;padding:0 10px;line-height:22px;height:22px;background:#000000;color:#fff;font-size:12px;font-weight:400;border-radius:30px;margin-right:2px;display:flex;justify-content:center;align-items:center;}
 .comment{font-size:12px;color:#7e6a62}
 
 .warnning_wrap{padding:40px 0 32px;border-top:1px solid #00000042}
@@ -42,7 +42,7 @@ a.close_btn img{width:24px;}
 
 /* 스크롤바 thumb (드래그 바) */
 ::-webkit-scrollbar-thumb {
-    background-color:#eccbb1
+    background-color:#eccbb1;
     border-radius: 10px; /* 둥근 모서리 */
 }
 
